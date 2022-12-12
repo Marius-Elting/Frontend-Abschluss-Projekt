@@ -1,7 +1,7 @@
 import './GenreCard.css';
 
 function GenreCard() {
-    return (  );
+    return (<div></div>);
 }
 
 export default GenreCard;
