@@ -1,6 +1,7 @@
 import './Detail.css';
 function Detail() {
-    return;
+    return
+
 }
 
 export default Detail;

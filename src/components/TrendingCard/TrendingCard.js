@@ -1,4 +1,6 @@
 import './TrendingCard.css';
+
+
 function TrendingCard() {
     return;
 }

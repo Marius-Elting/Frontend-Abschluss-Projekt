@@ -1,6 +1,8 @@
 import './SearchGenre.css';
 
 function SearchGenre() {
+  
+
     return;
 }
 
