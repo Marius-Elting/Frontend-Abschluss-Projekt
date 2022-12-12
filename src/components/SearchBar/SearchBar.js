@@ -1,7 +1,7 @@
 import './SearchBar.css';
 
 function SearchBar() {
-    return (  );
+    return (<div></div>);
 }
 
 export default SearchBar;
