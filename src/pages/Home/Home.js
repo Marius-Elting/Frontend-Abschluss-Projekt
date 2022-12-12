@@ -1,7 +1,11 @@
 import './Home.css';
+import GenreButtons from '../../components/GenreButtons/GenreButtons';
 
 function Home() {
-    return (  );
+    return (
+        <div>
+        </div>
+    );
 }
 
 export default Home;
