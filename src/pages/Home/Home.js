@@ -1,7 +1,13 @@
 import './Home.css';
+import SearchBar from '../../components/SearchBar/SearchBar';
+
 
 function Home() {
-    return (  );
+    return (
+        <div>
+            <SearchBar />
+        </div>
+    );
 }
 
 export default Home;

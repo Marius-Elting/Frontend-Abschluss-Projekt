@@ -1,7 +1,7 @@
 import './SplashScreen.css';
 
 function SplashScreen() {
-    return (  );
+    return
 }
 
 export default SplashScreen;

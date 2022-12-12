@@ -1,7 +1,7 @@
 import './GenreButtons.css';
 
 function GenreButtons() {
-    return (  );
+    return
 }
 
 export default GenreButtons;
