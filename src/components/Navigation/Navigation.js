@@ -2,7 +2,7 @@ import './Navigation.css';
 
 
 function Navigation() {
-    return (  );
+    return;
 }
 
 export default Navigation;

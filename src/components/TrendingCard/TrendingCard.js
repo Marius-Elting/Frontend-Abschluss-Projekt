@@ -1,6 +1,6 @@
 import './TrendingCard.css';
 function TrendingCard() {
-    return (  );
+    return;
 }
 
 export default TrendingCard;
