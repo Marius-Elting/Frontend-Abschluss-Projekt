@@ -4,6 +4,7 @@ import GenreButtons from '../../components/GenreButtons/GenreButtons';
 function Home() {
     return (
         <div>
+            <GenreButtons />
         </div>
     );
 }
