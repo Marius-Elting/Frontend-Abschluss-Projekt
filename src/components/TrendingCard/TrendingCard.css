@@ -1,35 +1,63 @@
 /* Slideshow */
 
-.slideshow {
+.trendingCard-slideshow {
     margin: 0 auto;
     overflow: hidden;
     max-width: 500px;
+
 }
 
-.slideshowSlider {
+.trendingCard-slideshowSlider {
     white-space: nowrap;
     transition: ease 1000ms;
 
 }
 
-.slide {
+.trendingCard-slide {
     display: inline-block;
-
-    height: 400px;
+    height: 350px;
     width: 100%;
     border-radius: 40px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.trendingCard-TextContent {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: flex-end;
+    color: white;
+    padding: 20px 20px;
+    flex-direction: column;
+    gap: 5px;
+    background: linear-gradient(0deg, black, transparent);
+    border-radius: 40px;
+}
+
+.trendingCard-TextContent h3 {
+    word-wrap: normal;
+    white-space: pre-wrap;
+}
+
+.trendingCard-TextContent p {
+    align-self: flex-end;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
 }
 
 /* Buttons */
 
-.slideshowDots {
+.trendingCard-slideshowDots {
     text-align: center;
 }
 
-.slideshowDot {
+.trendingCard-slideshowDot {
     display: inline-block;
-    height: 20px;
-    width: 20px;
+    height: 15px;
+    width: 15px;
     border-radius: 50%;
 
     cursor: pointer;
@@ -38,6 +66,18 @@
     background-color: #c4c4c4;
 }
 
-.slideshowDot.active {
-    background-color: #6a0dad;
+.trendingCard-slideshowDot.active {
+    background-color: #fc2121;
+}
+
+.trendingCard-wrapper a {
+    text-decoration: none;
+    color: #fc2121;
+}
+
+.trendingCard-headline {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 5% 0
 }

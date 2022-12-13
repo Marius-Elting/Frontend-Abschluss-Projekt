@@ -2,6 +2,7 @@ import './SearchGenre.css';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import GenreCard from '../../components/GenreCard/GenreCard';
+import SearchBar from '../../components/SearchBar/SearchBar';
 
 function SearchGenre() {
     const params = useParams();
@@ -19,7 +20,6 @@ function SearchGenre() {
                     console.log(data);
                 });
         }
-
     }, [params]);
 
     if (movieData === undefined) {
@@ -27,6 +27,7 @@ function SearchGenre() {
     }
     return (
         <section>
+            <SearchBar />
             {movieData.results.map((singleMovieData) => {
                 return (
                     <GenreCard data={singleMovieData} />
