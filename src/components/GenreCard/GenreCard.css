@@ -4,36 +4,55 @@
     width: 55px;
     height: 83px;
     border-radius: 10px;
+    margin: 10px 10px;
 }
 
 .genreCard {
     display: flex;
     text-decoration: none;
+    box-shadow: 1px 1px 5px white;
+    margin: 20px;
+    border-radius: 10px;
 }
 
 .genreCard-information {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     margin: 0 2rem;
     color: #000000;
 }
 
 .genreCard-movieTitle {
     display: flex;
-    justify-content: space-evenly;
     flex-direction: row;
+    justify-content: space-between;
     width: 100%;
     gap: 20px;
+    margin: 10px 10px;
+}
+
+.genreCard-movieTitle article {
+    display: flex;
+    gap: 8px;
 }
 
 .genreCard-releaseYear {
     display: flex;
     width: 100%;
+    margin: 10px 10px;
 }
 
 .genreCard-title {
     font-weight: 700;
     font-size: 18px;
-    line-height: 21px;
     font-family: raleway;
+}
+
+.genreCard-rating {
+    /* display: flex; */
+}
+
+.genreCard-speichern {
+    /* display: flex; */
 }

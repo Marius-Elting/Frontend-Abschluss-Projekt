@@ -18,12 +18,15 @@ function GenreCard({ data }) {
 
                 <article className="genreCard-movieTitle">
                     <h3 className="genreCard-title">{data.original_title}</h3>
-                    <p className="genreCard-rating">{data.vote_average}</p>
-                    <p className="genreCard-speichern">p</p>
+
+                    <article>
+                        <p className="genreCard-rating">{data.vote_average}</p>
+                        <p className="genreCard-save">p</p>
+                    </article>
                 </article>
 
                 <article className="genreCard-movieText">
-                    <p className="genreCard-releaseYear">{date.getFullYear()} {genre?.name}</p>
+                    <p className="genreCard-releaseYear">{date.getFullYear()}   {genre?.name}</p>
 
                 </article>
             </section>
