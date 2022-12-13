@@ -14,7 +14,7 @@ function GenreCard({ data }) {
             <h3>{data.original_title}</h3>
             <p>{data.vote_average}</p>
             <p>{date.getFullYear()}</p>
-            <p>{genre.name}</p>
+            <p>{genre?.name}</p>
         </Link>
     );
 }
