@@ -1,0 +1,10 @@
+.detailBackGroundContainer {
+    /* background: linear-gradient(0deg, rgb(221, 214, 214), transparent); */
+    width: 100%;
+    height: 80vh;
+    background-repeat: no-repeat;
+    /* background-size: 50% 70%; */
+    /* background-size: contain; */
+    background-attachment: fixed;
+}
+
