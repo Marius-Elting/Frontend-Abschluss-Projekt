@@ -3,26 +3,18 @@ import { useRef, useState, useEffect } from 'react';
 
 
 function TrendingCard() {
-    const delay = 1000;
+    const delay = 2500;
     const [trendingData, setTrendingData] = useState();
     const [index, setIndex] = useState(0);
     const timeoutRef = useRef(null);
 
     useEffect(() => {
-
-        fetch('https://api.themoviedb.org/3/trending/all/week?api_key=12504ab7183e888f66ac1785c47850f3&language=de-DE')
+        fetch(`https://api.themoviedb.org/3/trending/all/week?api_key=${process.env.REACT_APP_API_KEY}&language=de-DE`)
             .then(response => response.json())
             .then((data) => {
-                console.log(data);
                 setTrendingData(data.results.slice(0, 5));
             });
-        console.table(trendingData);
     }, []);
-
-
-
-
-
 
 
 
@@ -71,7 +63,6 @@ function TrendingCard() {
                         </div>
                     ))}
                 </div>
-
                 <div className="slideshowDots">
                     {trendingData.map((_, idx) => (
                         <div

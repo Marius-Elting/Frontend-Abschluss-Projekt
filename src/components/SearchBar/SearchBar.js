@@ -1,32 +1,18 @@
 import './SearchBar.css';
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useRef, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 function SearchBar() {
-    const [searchInput, setSearchInput] = useState();
+    const inputRef = useRef();
+    const navigate = useNavigate();
 
-    useEffect(() => {
-        if (searchInput === undefined) {
-            return;
-        }
-        fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=de-DE&query=${searchInput}&include_adult=false`)
-            .then(response => response.json())
-            .then(test => {
-                console.log(test);
-            });
-    }, [searchInput]);
-
-    function handleInput(e) {
-        if (e.key === "Enter") {
-            setSearchInput(e.target.value);
-            // console.log(e.target.value)
-        }
-    }
+    const handleOnClick = useCallback(() => navigate(`/discover/search/${inputRef.current.value}`, { replace: true }), [navigate]);
 
     return (
-        <div>
-            <input placeholder="Search Movie..." onKeyDown={handleInput}></input>
+        <div className="form-group fg--search">
+            <input ref={inputRef} type="text" className="input" placeholder="Search Movie..." onKeyDown={(e) => e.key === "Enter" ? handleOnClick() : ""}></input>
+            <button onClick={() => handleOnClick()} type="submit"><i className="fa fa-search"></i></button>
         </div>
     );
 };
