@@ -1,3 +1,3 @@
 {
-    "editor.acceptSuggestionOnEnter": "smart"
+  "editor.acceptSuggestionOnEnter": "off"
 }
