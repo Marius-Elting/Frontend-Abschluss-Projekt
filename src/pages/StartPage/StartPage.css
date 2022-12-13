@@ -1,0 +1,46 @@
+.start-page-gradient {
+    width: 100%;
+    height: 70vh;
+    background: linear-gradient(152deg, rgb(233, 142, 181) 0%, rgba(252, 33, 33, 1) 100%);
+}
+
+.start-page-top {
+    width: 100%;
+    height: 80vh;
+    background: url("../../assets/icons/StartPage.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    /* background-attachment: fixed; */
+}
+
+.start-page-buttom {
+    text-align: center;
+    color: #1A1A1A;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 1;
+    top: 55%;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2rem;
+    border-radius: 20px 20px;
+    padding: 1rem 2rem;
+}
+
+.start-page-buttom h1 {
+    margin-top: 1rem;
+}
+
+.start-page-button {
+    text-decoration: none;
+    background: #FC2121;
+    color: #F1F1F1;
+    padding: 1rem 2rem;
+    border-radius: 15px;
+    box-shadow: 4px 4px 15px 2px rgba(0, 0, 0, 0.202);
+}
