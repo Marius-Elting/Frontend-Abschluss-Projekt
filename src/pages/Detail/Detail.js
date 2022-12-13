@@ -2,7 +2,7 @@ import './Detail.css';
 import Return from "../../assets/icons/Return.svg";
 import RatingStar from "../../assets/icons/RatingStar.svg";
 import ButtonArrow from "../../assets/icons/ButtonArrow.svg";
-import { Link, useParams, Navigate, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from 'react';
 
 
