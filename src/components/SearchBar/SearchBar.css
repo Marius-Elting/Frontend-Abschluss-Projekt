@@ -1,20 +1,22 @@
-* {
-    box-sizing: border-box;
-}
 
 body {
+
     background: gray;
-}
+} */
 
 .fg--search {
     background: white;
     position: relative;
-    width: 80%;
+    width: 90%;
+    border-radius: 10px;
 }
 
 .fg--search input {
     width: 100%;
     padding: 20px 60px 20px 20px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
     display: block;
 }
 
@@ -35,6 +37,7 @@ body {
     color: red;
 }
 
-.fa-search:before {
-    content: "\f002";
+.fa-search {
+    height: 30px;
+    margin-top: -5px;
 }

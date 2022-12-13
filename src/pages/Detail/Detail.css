@@ -1,0 +1,25 @@
+.detailBackGroundContainer {
+    /* background: linear-gradient(0deg, rgb(221, 214, 214), transparent); */
+    width: 100%;
+    height: 80vh;
+    background-repeat: no-repeat;
+    /* background-size: 50% 70%; */
+    /* background-size: contain; */
+    background-attachment: fixed;
+}
+
+.detailGenreDiv {
+    display: flex;
+}
+
+.detailGenre {
+    font-weight: bolder;
+    margin-right: 2%;
+}
+
+.detailGenreDiv p:nth-of-type(3)::before,
+.detailGenreDiv p:nth-of-type(4)::before,
+.detailGenreDiv p:nth-of-type(5)::before,
+.detailGenreDiv p:nth-of-type(6)::before {
+    content: ", ";
+}
