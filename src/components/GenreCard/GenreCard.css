@@ -1,0 +1,39 @@
+.genreCard-poster {
+    margin-top: 1rem;
+    margin-left: 1rem;
+    width: 55px;
+    height: 83px;
+    border-radius: 10px;
+}
+
+.genreCard {
+    display: flex;
+    text-decoration: none;
+}
+
+.genreCard-information {
+    display: flex;
+    flex-direction: column;
+    margin: 0 2rem;
+    color: #000000;
+}
+
+.genreCard-movieTitle {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    width: 100%;
+    gap: 20px;
+}
+
+.genreCard-releaseYear {
+    display: flex;
+    width: 100%;
+}
+
+.genreCard-title {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+    font-family: raleway;
+}
