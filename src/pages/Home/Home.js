@@ -6,7 +6,7 @@ import TrendingCard from '../../components/TrendingCard/TrendingCard';
 
 function Home() {
     return (
-        <div>
+        <div className='home-wrapper'>
             <SearchBar />
             <GenreButtons />
             <TrendingCard />

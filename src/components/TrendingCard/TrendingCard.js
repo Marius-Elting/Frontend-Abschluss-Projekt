@@ -1,9 +1,11 @@
 import './TrendingCard.css';
 import { useRef, useState, useEffect } from 'react';
+import star from '../img/RatingStar.svg';
+import { Link } from 'react-router-dom';
 
 
 function TrendingCard() {
-    const delay = 2500;
+    const delay = 3500;
     const [trendingData, setTrendingData] = useState();
     const [index, setIndex] = useState(0);
     const timeoutRef = useRef(null);
@@ -46,28 +48,37 @@ function TrendingCard() {
         return;
     }
     return (
-        <section>
-            <div className="slideshow">
+        <section className='trendingCard-wrapper'>
+            <h2 className='trendingCard-headline'>Trending Movies <Link to="/discover/trending/movie">See all</Link></h2>
+            <div className="trendingCard-slideshow">
                 <div
-                    className="slideshowSlider"
+                    className="trendingCard-slideshowSlider"
                     style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
                 >
                     {trendingData.map((data, index) => (
                         <div
-                            className="slide"
+                            className="trendingCard-slide"
                             key={index}
-                            style={{ "background": `url(https://image.tmdb.org/t/p/w300/${data.backdrop_path})` }}
+                            style={{
+                                background: `url(https://image.tmdb.org/t/p/w400/${data.poster_path})`,
+                                backgroundRepeat: "no-repeat",
+                                backgroundPosition: "center",
+                                backgroundSize: "cover"
+
+                            }}
                         >
-                            <p>{data.title === undefined ? data.name : data.title}({data.media_type})</p>
-                            <p>{data.vote_average} / 10.0</p>
+                            <div className='trendingCard-TextContent'>
+                                <h3>{data.title === undefined ? data.name : data.title}({data.media_type})</h3>
+                                <p><img src={star} alt="RatingStar"></img>{(data.vote_average).toFixed(2)} / 10.0</p>
+                            </div>
                         </div>
                     ))}
                 </div>
-                <div className="slideshowDots">
+                <div className="trendingCard-slideshowDots">
                     {trendingData.map((_, idx) => (
                         <div
                             key={idx}
-                            className={`slideshowDot${index === idx ? " active" : ""}`}
+                            className={`trendingCard-slideshowDot${index === idx ? " active" : ""}`}
                             onClick={() => {
                                 setIndex(idx);
                             }}
