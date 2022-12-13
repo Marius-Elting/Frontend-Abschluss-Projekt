@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function GenreButtons() {
     return (
-        <section className='GenreCardWrapperSection'>
+        <section className='GenreButtonsWrapperSection'>
             <Link to={`/discover/genre/28`}><button>Action</button></Link>
             <Link to={`/discover/genre/35`}><button>Komödie</button></Link>
             <Link to={`/discover/genre/27`}><button>Horror</button></Link>

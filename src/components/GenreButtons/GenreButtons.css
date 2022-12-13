@@ -1,11 +1,12 @@
-.GenreCardWrapperSection {
+.GenreButtonsWrapperSection {
     display: flex;
     flex-direction: row;
     width: 350px;
     overflow-x: scroll;
+    margin: 20px;
 }
 
-.GenreCardWrapperSection button {
+.GenreButtonsWrapperSection button {
     padding: 10px 15px;
     margin: 10px;
     background-color: #FBF8FF;
@@ -15,7 +16,7 @@
     white-space: nowrap;
 }
 
-.GenreCardWrapperSection button:hover {
+.GenreButtonsWrapperSection button:hover {
     background-color: #fd8f8f;
     cursor: pointer;
 }
