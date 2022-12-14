@@ -3,7 +3,7 @@ import Return from "../../assets/icons/Return.svg";
 import RatingStar from "../../assets/icons/RatingStar.svg";
 import ButtonArrow from "../../assets/icons/ButtonArrow.svg";
 import { useParams, useNavigate } from "react-router-dom";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 
 function Detail() {
@@ -12,6 +12,8 @@ function Detail() {
     const [translationsData, setTranslationsData] = useState();
     const [videoLink, setVideoLink] = useState();
     const params = useParams();
+    const TrailerRef = useRef();
+    const [trailerVideo, setTrailerVideo] = useState();
     // console.log(params);
 
     useEffect(() => {
@@ -53,6 +55,13 @@ function Detail() {
     // console.log(movieData);
     // console.log(movieData.runtime);
 
+    // function TrailerVideo() {
+
+    //     return (
+
+    //     );
+    // }
+
     return (
         <div className='detailPage'>
             <div className='detailBackGroundContainer'
@@ -86,7 +95,7 @@ function Detail() {
                         </div>
                     </div>
                 </div>
-            </div >
+            </div>
             <div className='detailOverviewDiv'>
                 <h3>Overview</h3>
                 <div ><p className='detailCuttofP'>{movieData.overview}</p><input type="checkbox" className='seeMore'></input></div>
@@ -102,12 +111,14 @@ function Detail() {
                 </div>
                 <div className='detailLanguage'> <p><span className='detailLanguageP'>Languages</span> {movieData.spoken_languages[0].english_name}</p></div>
             </div>
-            <button className='watchTrailer'>
+            <button onClick={() => {
+                setTrailerVideo(<iframe title="Trailer" src={`https://www.youtube.com/embed/${videoLink}`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" onLoad={(e) => e.target.requestFullscreen()}></iframe>);
+            }} className='watchTrailer'>
                 <img alt='img' src={ButtonArrow} />
                 Watch Trailer
             </button>
-            <iframe src={`https://www.youtube.com/embed/${videoLink}`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" Allowfullscreen></iframe>
-        </div >
+            {trailerVideo}
+        </div>
     );
 };
 

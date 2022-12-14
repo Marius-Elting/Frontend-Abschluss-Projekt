@@ -54,7 +54,7 @@ function TrendingCard() {
                     style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
                 >
                     {trendingData.map((data, index) => (
-                        <div
+                        <Link to={`/details/${data.id}/${data.title}`}
                             className="trendingCard-slide"
                             key={index}
                             style={{
@@ -68,7 +68,7 @@ function TrendingCard() {
                                 <h3>{data.title === undefined ? data.name : data.title}({data.media_type})</h3>
                                 <p><img src={star} alt="RatingStar"></img>{(data.vote_average).toFixed(1)} / 10.0</p>
                             </div>
-                        </div>
+                        </Link>
                     ))}
                 </div>
                 <div className="trendingCard-slideshowDots">
