@@ -1,17 +1,21 @@
-
 /* body {
 
     background: gray;
 }  */
 
-.fg--search {
+.Searchbar-Container {
     background: white;
     position: relative;
     width: 90%;
     border-radius: 10px;
+    box-shadow: 1px 1px 6px gray;
+    display: inline-block;
+    margin: 10px auto;
 }
 
-.fg--search input {
+
+
+.Searchbar-Container input {
     width: 100%;
     padding: 20px 60px 20px 20px;
     border-radius: 10px;
@@ -20,7 +24,7 @@
     display: block;
 }
 
-.fg--search button {
+.Searchbar-Container button {
     background: transparent;
     border: none;
     cursor: pointer;
@@ -33,11 +37,16 @@
     z-index: 2;
 }
 
-.fg--search input:focus+button .fa-search {
+.Searchbar-Container:has(> input:focus) {
+    box-shadow: 3px 3px 10px gray;
+
+}
+
+.Searchbar-Container input:focus+button .Searchbar-Img {
     color: red;
 }
 
-.fa-search {
+.Searchbar-Img {
     height: 30px;
     margin-top: -5px;
 }
