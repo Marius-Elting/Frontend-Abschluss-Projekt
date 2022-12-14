@@ -42,6 +42,7 @@
 .genreCard-movieTitle article {
     display: flex;
     gap: 8px;
+    justify-content: center;
 }
 
 .genreCard-releaseYear {
@@ -54,4 +55,8 @@
     font-weight: 700;
     font-size: 18px;
     font-family: raleway;
+}
+
+.starImg {
+    height: 20px;
 }

@@ -63,7 +63,7 @@ function Detail() {
                     backgroundAttachment: "fixed",
                 }} >
                 <div className='backArrow'>
-                    <button onClick={() => navigate(-1)}>
+                    <button className='detailBackButton' onClick={() => navigate(-1)}>
                         <img alt='img' src={Return}></img>
                     </button>
                     {/* <Link to={`/discover/test/test`}>
@@ -85,12 +85,11 @@ function Detail() {
                             <p>{(movieData.vote_average).toFixed(1)}</p>
                         </div>
                     </div>
-
                 </div>
             </div >
             <div className='detailOverviewDiv'>
                 <h3>Overview</h3>
-                <p>{movieData.overview}<span className='seeMore'> See more...</span></p>
+                <div ><p className='detailCuttofP'>{movieData.overview}</p><input type="checkbox" className='seeMore'></input></div>
                 <div className='detailGenreDiv'>
                     <p className='detailGenre'>Genre</p>
                     <div className='detailGenreGenresOutput'>
@@ -101,7 +100,6 @@ function Detail() {
                         })}
                     </div>
                 </div>
-
                 <div className='detailLanguage'> <p><span className='detailLanguageP'>Languages</span> {movieData.spoken_languages[0].english_name}</p></div>
             </div>
             <button className='watchTrailer'>
