@@ -80,7 +80,7 @@ function Detail() {
                     <p>Movie Details</p>
                 </div>
                 <div className='detailName' style={{
-                    background: "linear-gradient(0deg, #fff, transparent)"
+                    background: "linear-gradient(0deg, #fff, 85%,  transparent)"
                 }}>
                     <div className='detailHeadingRating'>
                         <h2>{movieData.original_title}</h2>
@@ -109,7 +109,7 @@ function Detail() {
                         })}
                     </div>
                 </div>
-                <div className='detailLanguage'> <p><span className='detailLanguageP'>Languages</span> {movieData.spoken_languages[0].english_name}</p></div>
+                <div className='detailLanguage'> <p><span className='detailLanguageP'>Languages</span>{movieData.spoken_languages[0].english_name}</p></div>
             </div>
             <button onClick={() => {
                 setTrailerVideo(<iframe title="Trailer" src={`https://www.youtube.com/embed/${videoLink}`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" onLoad={(e) => e.target.requestFullscreen()}></iframe>);
