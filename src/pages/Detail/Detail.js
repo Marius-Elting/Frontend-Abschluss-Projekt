@@ -112,7 +112,7 @@ function Detail() {
                 <div className='detailLanguage'> <p><span className='detailLanguageP'>Languages</span>{movieData.spoken_languages[0].english_name}</p></div>
             </div>
             <button onClick={() => {
-                setTrailerVideo(<iframe title="Trailer" src={`https://www.youtube.com/embed/${videoLink}`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" onLoad={(e) => e.target.requestFullscreen()}></iframe>);
+                setTrailerVideo(<div className='detailIframe'><iframe title="Trailer" src={`https://www.youtube.com/embed/${videoLink}`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" onLoad={(e) => e.target.requestFullscreen()}></iframe></div>);
             }} className='watchTrailer'>
                 <img alt='img' src={ButtonArrow} />
                 Watch Trailer
