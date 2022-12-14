@@ -10,7 +10,7 @@ function Navigation() {
     return (
         <div className='navigation'>
             <Link to="/home">
-                <img alt="Home Button" src={Home}></img>
+                <img className='navLinkToHome' alt="Home Button" src={Home}></img>
             </Link>
             <img alt="Bookmark Button" src={Bookmark}></img>
             <img alt="Download Button" src={Download}></img>

@@ -6,5 +6,10 @@
     align-self: flex-end;
     position: fixed;
     bottom: 0;
-    background-color: aqua;
+    box-shadow: 1px 1px 6px gray;
+    background-color: white;
+}
+
+.navLinkToHome {
+    margin-top: 7%;
 }
