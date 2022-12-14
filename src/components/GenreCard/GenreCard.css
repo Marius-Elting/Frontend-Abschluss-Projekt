@@ -1,3 +1,17 @@
+.genreCard {
+    display: flex;
+    text-decoration: none;
+    box-shadow: 1px 1px 5px white;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 6px gray;
+    transition: shadow .5s linear;
+}
+
+.genreCard:hover {
+    box-shadow: 2px 2px 12px gray;
+}
+
 .genreCard-poster {
     margin-top: 1rem;
     margin-left: 1rem;
@@ -7,19 +21,12 @@
     margin: 10px 10px;
 }
 
-.genreCard {
-    display: flex;
-    text-decoration: none;
-    box-shadow: 1px 1px 5px white;
-    margin: 20px;
-    border-radius: 10px;
-}
-
 .genreCard-information {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     margin: 0 2rem;
+    width: 100%;
     color: #000000;
 }
 
@@ -47,12 +54,4 @@
     font-weight: 700;
     font-size: 18px;
     font-family: raleway;
-}
-
-.genreCard-rating {
-    /* display: flex; */
-}
-
-.genreCard-speichern {
-    /* display: flex; */
 }

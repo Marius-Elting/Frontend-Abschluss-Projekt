@@ -11,9 +11,10 @@ function SearchBar() {
     const handleOnClick = useCallback(() => navigate(`/discover/search/${inputRef.current.value}`, { replace: true }), [navigate]);
 
     return (
-        <div className="form-group fg--search">
+        <div className="Searchbar-Container">
             <input ref={inputRef} type="text" className="input" placeholder="Search Movie..." onKeyDown={(e) => e.key === "Enter" ? handleOnClick() : ""}></input>
-            <button onClick={() => handleOnClick()} type="submit"><img src={SearchImg} alt="SuchLupe" className="fa fa-search"></img></button>
+            <button onClick={() => handleOnClick()} type="submit"><img src={SearchImg} alt="SuchLupe" className="fa Searchbar-Img"></img></button>
+
         </div>
     );
 };

@@ -26,11 +26,11 @@ function SearchGenre() {
         return;
     }
     return (
-        <section>
+        <section className='SearchGenre-Wrapper'>
             <SearchBar />
-            {movieData.results.map((singleMovieData) => {
+            {movieData.results.map((singleMovieData, index) => {
                 return (
-                    <GenreCard data={singleMovieData} />
+                    <GenreCard data={singleMovieData} index={index} />
                 );
             })}
         </section>
