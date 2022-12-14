@@ -1,7 +1,7 @@
 .detailBackGroundContainer {
     /* background: linear-gradient(0deg, rgb(221, 214, 214), transparent); */
     width: 100%;
-    height: 61vh;
+    height: 68vh;
     background-repeat: no-repeat;
     /* background-size: 50% 70%; */
     /* background-size: contain; */
@@ -40,7 +40,7 @@
 }
 
 .detailName {
-    height: 61vh;
+    height: 68vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -163,4 +163,10 @@
     overflow: hidden;
     -webkit-box-orient: vertical;
     /* max-height: calc(var(5)*1em*var(1.5)) */
+}
+
+iframe {
+    padding-top: 80px;
+    width: 80%;
+    margin: 0 auto;
 }
