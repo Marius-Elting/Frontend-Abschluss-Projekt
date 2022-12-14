@@ -110,6 +110,10 @@
     gap: 10px;
 }
 
+.detailOverviewDiv h3 {
+    font-size: 1.5rem;
+}
+
 .seeMore {
     color: red;
     background-color: transparent;
