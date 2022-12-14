@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import './StartPage.css';
-// import StartPageImg from "../../assets/icons/Image.png";
 
 function StartPage() {
     return (
