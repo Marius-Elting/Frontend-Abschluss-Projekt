@@ -5,6 +5,7 @@
     overflow: hidden;
     max-width: 350px;
 
+    ;
 }
 
 .trendingCard-slideshowSlider {
@@ -16,16 +17,18 @@
 .trendingCard-slide {
     display: inline-block;
     height: 350px;
-    width: 100%;
+    width: 350px;
     border-radius: 40px;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
+    position: relative;
 }
 
 .trendingCard-TextContent {
     display: flex;
-    height: 100%;
+    position: absolute;
+    bottom: 0;
     width: 100%;
     justify-content: flex-end;
     color: white;
