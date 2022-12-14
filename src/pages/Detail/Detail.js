@@ -10,6 +10,7 @@ function Detail() {
     let navigate = useNavigate();
     const [movieData, setMovieData] = useState();
     const [translationsData, setTranslationsData] = useState();
+    const [videoLink, setVideoLink] = useState();
     const params = useParams();
     // console.log(params);
 
@@ -18,7 +19,7 @@ function Detail() {
         fetch(`https://api.themoviedb.org/3/movie/${params.movieID}?api_key=${process.env.REACT_APP_API_KEY}&language=de-DE`)
             .then(res => res.json())
             .then(movieData => {
-                console.log(movieData);
+                // console.log(movieData);
                 setMovieData(movieData);
             });
 
@@ -29,14 +30,28 @@ function Detail() {
                 setTranslationsData(translationsData);
                 // console.log(translationsData);
             });
+
+        //Video-fetch
+        fetch(`https://api.themoviedb.org/3/movie/${params.movieID}/videos?api_key=${process.env.REACT_APP_API_KEY}&language=de-DE`)
+            .then(response => response.json())
+            .then(video => {
+                console.log(video.results[0].key);
+                setVideoLink(video.results[0].key);
+            });
     }, [params]);
 
-    // const toHHMM = (totalMinutes) => {
-    //     const 
+    const toHHMM = (totalMinutes) => {
+        const minutes = totalMinutes % 60;
+        const hours = Math.floor(totalMinutes / 60);
+        return `${padTo2Digits(hours)}h ${padTo2Digits(minutes)}m`;
+    };
+    const padTo2Digits = (num) => {
+        return num.toString().padStart(1, '0');
+    };
 
-    // };
     if (movieData === undefined) return;
     // console.log(movieData);
+    // console.log(movieData.runtime);
 
     return (
         <div className='detailPage'>
@@ -62,7 +77,8 @@ function Detail() {
                         <h2>{movieData.original_title}</h2>
                         <div className='detailReleaseRuntime'>
                             <p>{movieData.release_date} &#x2022;</p>
-                            <p>&nbsp;{(movieData.runtime / 60).toFixed(2)}h</p>
+                            <p>&nbsp; {toHHMM(movieData.runtime)}</p>
+                            {/* <p>&nbsp;{(movieData.runtime / 60).toFixed(2)}h</p> */}
                         </div>
                         <div className='starRating'>
                             <img alt='img' src={RatingStar}></img>
@@ -71,7 +87,7 @@ function Detail() {
                     </div>
 
                 </div>
-            </div>
+            </div >
             <div className='detailOverviewDiv'>
                 <h3>Overview</h3>
                 <p>{movieData.overview}<span className='seeMore'> See more...</span></p>
@@ -92,6 +108,7 @@ function Detail() {
                 <img alt='img' src={ButtonArrow} />
                 Watch Trailer
             </button>
+            <iframe src={`https://www.youtube.com/embed/${videoLink}`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" Allowfullscreen></iframe>
         </div >
     );
 };

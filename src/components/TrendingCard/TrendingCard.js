@@ -18,8 +18,6 @@ function TrendingCard() {
             });
     }, []);
 
-
-
     function resetTimeout() {
         if (timeoutRef.current) {
             clearTimeout(timeoutRef.current);
@@ -64,7 +62,6 @@ function TrendingCard() {
                                 backgroundRepeat: "no-repeat",
                                 backgroundPosition: "center",
                                 backgroundSize: "cover"
-
                             }}
                         >
                             <div className='trendingCard-TextContent'>
