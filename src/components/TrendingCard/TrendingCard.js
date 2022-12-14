@@ -69,7 +69,7 @@ function TrendingCard() {
                         >
                             <div className='trendingCard-TextContent'>
                                 <h3>{data.title === undefined ? data.name : data.title}({data.media_type})</h3>
-                                <p><img src={star} alt="RatingStar"></img>{(data.vote_average).toFixed(2)} / 10.0</p>
+                                <p><img src={star} alt="RatingStar"></img>{(data.vote_average).toFixed(1)} / 10.0</p>
                             </div>
                         </div>
                     ))}

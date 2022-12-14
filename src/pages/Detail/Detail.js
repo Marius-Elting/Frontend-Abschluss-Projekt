@@ -18,7 +18,7 @@ function Detail() {
         fetch(`https://api.themoviedb.org/3/movie/${params.movieID}?api_key=${process.env.REACT_APP_API_KEY}&language=de-DE`)
             .then(res => res.json())
             .then(movieData => {
-                // console.log(movieData);
+                console.log(movieData);
                 setMovieData(movieData);
             });
 
@@ -31,7 +31,10 @@ function Detail() {
             });
     }, [params]);
 
+    // const toHHMM = (totalMinutes) => {
+    //     const 
 
+    // };
     if (movieData === undefined) return;
     // console.log(movieData);
 
@@ -63,7 +66,7 @@ function Detail() {
                         </div>
                         <div className='starRating'>
                             <img alt='img' src={RatingStar}></img>
-                            <p>{(movieData.vote_average).toFixed(2)}</p>
+                            <p>{(movieData.vote_average).toFixed(1)}</p>
                         </div>
                     </div>
 
