@@ -18,10 +18,19 @@
     color: white;
     font-weight: bolder;
     align-items: center;
-    /* justify-content: space-between; */
     padding: 20px 0 0 0;
     font-size: 1.5rem;
     margin: 0 auto;
+}
+
+.detailBackButton {
+    height: 44px;
+    width: 44px;
+    border-radius: 15px;
+}
+
+.detailBackButton:hover {
+    box-shadow: 1px 1px 10px gray;
 }
 
 .backArrow button {
@@ -75,12 +84,12 @@
     margin-right: 2%;
 }
 
-.detailGenreGenresOutput{
+.detailGenreGenresOutput {
     display: flex;
     flex-wrap: wrap;
 }
 
-.detailGenreP{
+.detailGenreP {
     white-space: nowrap;
 
 }
@@ -103,7 +112,27 @@
 
 .seeMore {
     color: red;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    appearance: none;
+    white-space: nowrap;
 }
+
+.seeMore::before {
+    content: "See more..."
+}
+
+.seeMore:checked::before {
+    content: "See less..."
+}
+
+.detailCuttofP:has(+ .seeMore:checked) {
+    height: none;
+    display: block
+}
+
 
 .detailLanguageP {
     font-weight: bolder;
@@ -121,4 +150,13 @@
     display: flex;
     align-items: center;
     gap: 10px;
+}
+
+
+.detailCuttofP {
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    /* max-height: calc(var(5)*1em*var(1.5)) */
 }
