@@ -58,12 +58,12 @@ function Detail() {
                     <div className='detailHeadingRating'>
                         <h2>{movieData.original_title}</h2>
                         <div className='detailReleaseRuntime'>
-                            <p>{movieData.release_date} &#x2022; </p>
-                            <p>{(movieData.runtime / 60).toFixed(2)}h</p>
+                            <p>{movieData.release_date} &#x2022;</p>
+                            <p>&nbsp;{(movieData.runtime / 60).toFixed(2)}h</p>
                         </div>
                         <div className='starRating'>
                             <img alt='img' src={RatingStar}></img>
-                            <p>{(movieData.vote_average).toFixed(2)}</p>
+                            <p>&nbsp;{(movieData.vote_average).toFixed(2)}</p>
                         </div>
                     </div>
 
