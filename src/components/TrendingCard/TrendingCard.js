@@ -11,7 +11,7 @@ function TrendingCard() {
     const timeoutRef = useRef(null);
 
     useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/trending/all/week?api_key=${process.env.REACT_APP_API_KEY}&language=de-DE`)
+        fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.REACT_APP_API_KEY}&language=de-DE`)
             .then(response => response.json())
             .then((data) => {
                 setTrendingData(data.results.slice(0, 5));
@@ -42,7 +42,7 @@ function TrendingCard() {
         return () => {
             resetTimeout();
         };
-    }, [index]);
+    }, [index, trendingData]);
 
     if (trendingData === undefined) {
         return;
@@ -69,7 +69,7 @@ function TrendingCard() {
                         >
                             <div className='trendingCard-TextContent'>
                                 <h3>{data.title === undefined ? data.name : data.title}({data.media_type})</h3>
-                                <p><img src={star} alt="RatingStar"></img>{(data.vote_average).toFixed(2)} / 10.0</p>
+                                <p><img src={star} alt="RatingStar"></img>{(data.vote_average).toFixed(1)} / 10.0</p>
                             </div>
                         </div>
                     ))}

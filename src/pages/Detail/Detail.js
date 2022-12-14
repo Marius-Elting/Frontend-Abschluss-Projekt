@@ -2,7 +2,7 @@ import './Detail.css';
 import Return from "../../assets/icons/Return.svg";
 import RatingStar from "../../assets/icons/RatingStar.svg";
 import ButtonArrow from "../../assets/icons/ButtonArrow.svg";
-import { Link, useParams, Navigate, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from 'react';
 
 
@@ -18,7 +18,7 @@ function Detail() {
         fetch(`https://api.themoviedb.org/3/movie/${params.movieID}?api_key=${process.env.REACT_APP_API_KEY}&language=de-DE`)
             .then(res => res.json())
             .then(movieData => {
-                // console.log(movieData);
+                console.log(movieData);
                 setMovieData(movieData);
             });
 
@@ -31,6 +31,10 @@ function Detail() {
             });
     }, [params]);
 
+    // const toHHMM = (totalMinutes) => {
+    //     const 
+
+    // };
     if (movieData === undefined) return;
     // console.log(movieData);
 
@@ -43,7 +47,7 @@ function Detail() {
                     backgroundSize: "contain",
                     backgroundAttachment: "fixed",
                 }} >
-                <div>
+                <div className='backArrow'>
                     <button onClick={() => navigate(-1)}>
                         <img alt='img' src={Return}></img>
                     </button>
@@ -52,32 +56,39 @@ function Detail() {
                     <p>Movie Details</p>
                 </div>
                 <div className='detailName' style={{
-                    background: "linear-gradient(0deg, rgb(221, 214, 214), transparent)"
+                    background: "linear-gradient(0deg, #fff, transparent)"
                 }}>
-                    <p>{movieData.original_title}</p>
-                    <p>{movieData.release_date}</p>
-                    <p>{(movieData.runtime / 60).toFixed(2)}h</p>
-                    <div>
-                        <img alt='img' src={RatingStar}></img>
-                        <p>{movieData.vote_average}</p>
+                    <div className='detailHeadingRating'>
+                        <h2>{movieData.original_title}</h2>
+                        <div className='detailReleaseRuntime'>
+                            <p>{movieData.release_date} &#x2022;</p>
+                            <p>&nbsp;{(movieData.runtime / 60).toFixed(2)}h</p>
+                        </div>
+                        <div className='starRating'>
+                            <img alt='img' src={RatingStar}></img>
+                            <p>{(movieData.vote_average).toFixed(1)}</p>
+                        </div>
                     </div>
+
                 </div>
             </div>
             <div className='detailOverviewDiv'>
-                <h2>Overview</h2>
-                <p>{movieData.overview}<span> See more...</span></p>
+                <h3>Overview</h3>
+                <p>{movieData.overview}<span className='seeMore'> See more...</span></p>
                 <div className='detailGenreDiv'>
                     <p className='detailGenre'>Genre</p>
-                    {movieData.genres.map((genre, i) => {
-                        return (
-                            <p key={i} className='detailGenreP'>{genre.name}</p>
-                        );
-                    })}
+                    <div className='detailGenreGenresOutput'>
+                        {movieData.genres.map((genre, i) => {
+                            return (
+                                <p key={i} className='detailGenreP'> {genre.name}{i === movieData.genres.length - 1 ? "" : ", "} &nbsp; </p>
+                            );
+                        })}
+                    </div>
                 </div>
 
-                <div className='detailLanguage'> <p>Languages {movieData.spoken_languages[0].english_name}</p></div>
+                <div className='detailLanguage'> <p><span className='detailLanguageP'>Languages</span> {movieData.spoken_languages[0].english_name}</p></div>
             </div>
-            <button>
+            <button className='watchTrailer'>
                 <img alt='img' src={ButtonArrow} />
                 Watch Trailer
             </button>

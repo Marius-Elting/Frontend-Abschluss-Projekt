@@ -4,4 +4,7 @@
     width: 100%;
     padding: 1rem;
     align-self: flex-end;
+    position: fixed;
+    bottom: 0;
+    background-color: aqua;
 }
