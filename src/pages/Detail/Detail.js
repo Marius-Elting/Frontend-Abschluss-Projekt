@@ -31,7 +31,6 @@ function Detail() {
             });
     }, [params]);
 
-
     if (movieData === undefined) return;
     // console.log(movieData);
 
