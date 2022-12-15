@@ -1,15 +1,12 @@
 .detailBackGroundContainer {
-    /* background: linear-gradient(0deg, rgb(221, 214, 214), transparent); */
     width: 100%;
-    height: 61vh;
+    height: 68vh;
     background-repeat: no-repeat;
-    /* background-size: 50% 70%; */
-    /* background-size: contain; */
     background-attachment: fixed;
 }
 
 .detailPage {
-    padding-bottom: 30%;
+    padding-bottom: 20%;
 }
 
 .backArrow {
@@ -40,7 +37,7 @@
 }
 
 .detailName {
-    height: 61vh;
+    height: 68vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -140,7 +137,7 @@
 
 .detailLanguageP {
     font-weight: bolder;
-    margin-right: 2%;
+    margin-right: 3%;
 }
 
 .watchTrailer {
@@ -148,7 +145,7 @@
     border: transparent;
     border-radius: 8px;
     padding: 15px 30px;
-    margin: 0 auto;
+    margin: 10% auto 5% auto;
     color: white;
     font-size: 1.5rem;
     display: flex;
@@ -165,7 +162,9 @@
     /* max-height: calc(var(5)*1em*var(1.5)) */
 }
 
-.DetailIframe {
+
+.detailIframe {
+    width: 80%;
     display: flex;
-    margin: 20px auto;
+    margin: 10% auto;
 }
