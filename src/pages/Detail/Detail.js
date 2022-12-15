@@ -34,11 +34,11 @@ function Detail() {
         fetch(`https://api.themoviedb.org/3/movie/${params.movieID}/videos?api_key=${process.env.REACT_APP_API_KEY}&language=de-DE`)
             .then(response => response.json())
             .then(video => {
-
                 setVideoLink(video.results[0].key);
             });
     }, [params]);
 
+    // --- Rechnet Minuten in Stunden - Format HH-MM ---
     const toHHMM = (totalMinutes) => {
         const minutes = totalMinutes % 60;
         const hours = Math.floor(totalMinutes / 60);
@@ -47,6 +47,7 @@ function Detail() {
     const padTo2Digits = (num) => {
         return num.toString().padStart(1, '0');
     };
+    // --------------------------------------------------
 
     if (movieData === undefined) return;
     return (
@@ -62,8 +63,6 @@ function Detail() {
                     <button className='detailBackButton' onClick={() => navigate(-1)}>
                         <img alt='img' src={Return}></img>
                     </button>
-                    {/* <Link to={`/discover/test/test`}>
-                    </Link> */}
                     <p>Movie Details</p>
                 </div>
                 <div className='detailName' style={{
@@ -74,7 +73,6 @@ function Detail() {
                         <div className='detailReleaseRuntime'>
                             <p>{movieData.release_date} &#x2022;</p>
                             <p>&nbsp;{toHHMM(movieData.runtime)}</p>
-                            {/* <p>&nbsp;{(movieData.runtime / 60).toFixed(2)}h</p> */}
                         </div>
                         <div className='starRating'>
                             <img alt='img' src={RatingStar}></img>

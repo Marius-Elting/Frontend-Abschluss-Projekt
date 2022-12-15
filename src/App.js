@@ -7,9 +7,10 @@ import SearchGenre from './pages/SearchGenre/SearchGenre';
 import Detail from './pages/Detail/Detail';
 import StartPage from './pages/StartPage/StartPage';
 import Favorites from './pages/Favorites/Favorites';
-
-import { collection, getDocs, addDoc, doc, deleteDoc } from "firebase/firestore";
+import SplashScreen from './pages/SplashScreen/SplashScreen';
 import { db } from './Firebase';
+import { collection, getDocs, addDoc } from "firebase/firestore";
+
 
 function App() {
   const [favorites, addFavorites] = useState([]);
@@ -45,8 +46,10 @@ function App() {
   return (
     <div className="App">
       <Router>
+        {/* <SplashScreen /> */}
         <Routes>
-          <Route path="/" element={<><StartPage /></>} />
+          <Route path="/" element={<><SplashScreen /></>} />
+          <Route path="/start" element={<><StartPage /></>} />
           <Route path="/home" element={<><Home /><Navigation page={"home"} /></>} />
           <Route path="/discover/:variant/:searchValue" element={<><SearchGenre addToFavorites={addToFavorites} /><Navigation /></>} />
           <Route path="/details/:movieID/:movieName" element={<><Detail /><Navigation /></>} />
