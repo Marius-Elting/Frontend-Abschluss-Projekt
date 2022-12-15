@@ -1,5 +1,6 @@
 .genreCard {
     display: flex;
+    align-items: center;
     text-decoration: none;
     box-shadow: 1px 1px 5px white;
     margin: 10px;
@@ -36,7 +37,7 @@
     justify-content: space-between;
     width: 100%;
     gap: 20px;
-    margin: 10px 10px;
+    margin: 10px 0;
 }
 
 .genreCard-movieTitle article {
@@ -48,7 +49,7 @@
 .genreCard-releaseYear {
     display: flex;
     width: 100%;
-    margin: 10px 10px;
+    margin: 10px 0;
 }
 
 .genreCard-title {
@@ -59,4 +60,18 @@
 
 .starImg {
     height: 20px;
+}
+
+.genreCard-rating {
+    padding-right: 15%;
+}
+
+.genreCard-movieText {
+    display: flex;
+    align-items: center;
+}
+
+.genreCard-bookmark {
+    width: 25px;
+    height: 30px;
 }

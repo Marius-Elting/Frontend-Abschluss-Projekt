@@ -5,12 +5,24 @@
     padding-bottom: 80px;
 }
 
+.sortBtnDiv {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
 .sortBtn {
-    padding: 10px 15px;
-    margin: 10px;
+    padding: 15px 19px;
+    margin: 10px 10px;
     background-color: #FBF8FF;
     border-radius: 5px;
     outline: none;
     border: none;
     white-space: nowrap;
+}
+
+.sortBtn:hover {
+    background-color: #fd8f8f;
+    cursor: pointer;
 }
