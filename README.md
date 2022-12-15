@@ -1,6 +1,6 @@
-# Frontend Project - Movie Mania
+# Frontend Project - Movie Mania🍿
 
-Made with Love
+Made with Love❤️
 This is the Frontend project from Roman, Steffi, Akansel and Marius.
 
 Following you find our Folder Structure:
@@ -35,6 +35,6 @@ Highlights:
   - See trending movies
 
 
-Watch and try it on:
+Watch and try it on: 👇👇👇
 
 https://super-movie-mania.netlify.app/
