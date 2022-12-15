@@ -24,10 +24,10 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<><StartPage /></>} />
-          <Route path="/home" element={<><Home /><Navigation /></>} />
+          <Route path="/home" element={<><Home /><Navigation page={"home"} /></>} />
           <Route path="/discover/:variant/:searchValue" element={<><SearchGenre addToFavorites={addToFavorites} /><Navigation /></>} />
           <Route path="/details/:movieID/:movieName" element={<><Detail /><Navigation /></>} />
-          <Route path="/favorites" element={<><Favorites Favorites={favorites} /><Navigation /></>} />
+          <Route path="/favorites" element={<><Favorites Favorites={favorites} /><Navigation page={"favo"} /></>} />
         </Routes>
       </Router>
     </div>
