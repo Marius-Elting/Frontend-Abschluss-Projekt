@@ -8,6 +8,21 @@ function SearchGenre({ addToFavorites }) {
     const params = useParams();
     const [movieData, setMovieData] = useState();
 
+    function SortAscending() {
+        const copyMovieData = [...movieData];
+
+        setMovieData(copyMovieData.sort((a, b) => b.vote_average - a.vote_average));
+    }
+
+    function SortDescending() {
+        const copyMovieData = [...movieData];
+        console.log(copyMovieData);
+
+        setMovieData(copyMovieData.sort((a, b) => a.vote_average - b.vote_average));
+        console.log(copyMovieData);
+    }
+
+
     useEffect(() => {
         if (params.searchValue === undefined) {
             return;
@@ -42,6 +57,10 @@ function SearchGenre({ addToFavorites }) {
     return (
         <section className='SearchGenre-Wrapper'>
             <SearchBar />
+            <div>
+                <button className='sortBtn' type='button' onClick={SortAscending}>Ascending</button>
+                <button className='sortBtn' type='button' onClick={SortDescending}>Descending</button>
+            </div>
             {movieData.map((singleMovieData, index) => {
                 return (
                     <GenreCard addToFavorites={addToFavorites} data={singleMovieData} index={index} />
