@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Navigate } from "react-router-dom";
 import GenreCard from "../../components/GenreCard/GenreCard";
 import './Favorites.css';
 import { collection, getDocs, addDoc, doc, deleteDoc } from "firebase/firestore";
