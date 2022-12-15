@@ -26,21 +26,21 @@ function SearchGenre({ addToFavorites }) {
             return;
         }
         if (params.variant === "search") {
-            fetch(`https://api.themoviedb.org/3/search/movie?api_key=${"12504ab7183e888f66ac1785c47850f3"}&language=de-DE&query=${params.searchValue}&include_adult=false`)
+            fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=de-DE&query=${params.searchValue}&include_adult=false`)
                 .then(response => response.json())
                 .then(data => {
                     setMovieData(data.results);
                 });
         }
         if (params.variant === "genre") {
-            fetch(`https://api.themoviedb.org/3/discover/movie?api_key=12504ab7183e888f66ac1785c47850f3&with_genres=${params.searchValue}`)
+            fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&with_genres=${params.searchValue}`)
                 .then(response => response.json())
                 .then(data => {
                     setMovieData(data.results);
                 });
         }
         if (params.variant === "trending") {
-            fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=12504ab7183e888f66ac1785c47850f3&language=de-DE`)
+            fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.REACT_APP_API_KEY}&language=de-DE`)
                 .then(response => response.json())
                 .then(data => {
                     setMovieData(data.results);
@@ -54,9 +54,9 @@ function SearchGenre({ addToFavorites }) {
     return (
         <section className='SearchGenre-Wrapper'>
             <SearchBar />
-            <div>
-                <button className='sortBtn' type='button' onClick={SortAscending}>Ascending</button>
-                <button className='sortBtn' type='button' onClick={SortDescending}>Descending</button>
+            <div className='sortBtnDiv'>
+                <button className='sortBtn' type='button' onClick={SortAscending}>Sort by popularity ↑</button>
+                <button className='sortBtn' type='button' onClick={SortDescending}>Sort by popularity ↓</button>
             </div>
             {movieData.map((singleMovieData, index) => {
                 return (
