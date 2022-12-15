@@ -9,6 +9,31 @@
     transition: shadow .5s linear;
 }
 
+.genreCardLink {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin: 10px;
+    border-radius: 10px;
+    transition: shadow .5s linear;
+    width: 85%;
+
+}
+
+.genreCard-interactionButtons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    height: 100%;
+}
+
+.genreCard-bookmark:hover {
+    cursor: pointer;
+}
+
+
+
 .genreCard:hover {
     box-shadow: 2px 2px 12px gray;
 }

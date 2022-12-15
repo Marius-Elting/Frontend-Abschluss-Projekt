@@ -7,6 +7,7 @@ import { db } from '../../Firebase';
 
 function Favorites({ Favorites }) {
     const [favorites, setFavorites] = useState();
+    const [number, setNumber] = useState(Favorites.lenght);
 
     const ref = collection(db, "MovieMania");
     useEffect(() => {
@@ -15,11 +16,12 @@ function Favorites({ Favorites }) {
             setFavorites(a.docs.map((doc) => ({ ...doc.data(), docid: doc.id })));
         };
         getFavorites();
-    }, [Favorites]);
+    }, [Favorites, number]);
 
     const deleteUse = async (id) => {
         const FavoDoc = doc(db, "MovieMania", id);
         await deleteDoc(FavoDoc);
+        setNumber(number - 1);
     };
     // deleteUse()
     console.log(favorites);
@@ -30,7 +32,7 @@ function Favorites({ Favorites }) {
             {favorites.map((data) => {
 
                 return (
-                    <GenreCard data={data} page={"favo"} delteItem={deleteUse} />
+                    <GenreCard data={data} page={"favo"} delteItem={deleteUse} fav={true} />
                 );
             })}
         </div>
