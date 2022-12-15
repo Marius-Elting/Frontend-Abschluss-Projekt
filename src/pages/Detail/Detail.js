@@ -69,7 +69,7 @@ function Detail() {
                     <p>Movie Details</p>
                 </div>
                 <div className='detailName' style={{
-                    background: "linear-gradient(0deg, #fff, transparent)"
+                    background: "linear-gradient(0deg, #fff, 83%,  transparent)"
                 }}>
                     <div className='detailHeadingRating'>
                         <h2>{movieData.original_title}</h2>
@@ -98,7 +98,7 @@ function Detail() {
                         })}
                     </div>
                 </div>
-                <div className='detailLanguage'> <p><span className='detailLanguageP'>Languages</span> {movieData.spoken_languages[0].english_name}</p></div>
+                <div className='detailLanguage'> <p><span className='detailLanguageP'>Languages</span>{movieData.spoken_languages[0].english_name}</p></div>
             </div>
             <button onClick={() => {
                 setTrailerVideo(<iframe className="DetailIframe" title="Trailer" src={`https://www.youtube.com/embed/${videoLink}`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" fullscreen="true" allowfullscreen="allowfullscreen" onLoad={(e) => { e.target.requestFullscreen(); }} onKeyDown={() => setTrailerVideo("")}></iframe>);
@@ -106,6 +106,7 @@ function Detail() {
                 document.body.addEventListener("keypress", (e) => {
                     setTrailerVideo("");
                 });
+
             }} className='watchTrailer'>
                 <img alt='img' src={ButtonArrow} />
                 Watch Trailer
