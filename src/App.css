@@ -8,6 +8,11 @@
     src: url('./fonts/Poppins-Bold.ttf');
 }
 
+@font-face {
+    font-family: Papyrus;
+    src: url('./fonts/Papyrus.ttf');
+}
+
 * {
     font-family: Poppins-Reg;
     margin: 0;
