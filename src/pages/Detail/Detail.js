@@ -20,7 +20,6 @@ function Detail() {
         fetch(`https://api.themoviedb.org/3/movie/${params.movieID}?api_key=${process.env.REACT_APP_API_KEY}&language=de-DE`)
             .then(res => res.json())
             .then(movieData => {
-                // console.log(movieData);
                 setMovieData(movieData);
             });
 
@@ -29,14 +28,13 @@ function Detail() {
             .then(response => response.json())
             .then(translationsData => {
                 setTranslationsData(translationsData);
-                // console.log(translationsData);
             });
 
         //Video-fetch
         fetch(`https://api.themoviedb.org/3/movie/${params.movieID}/videos?api_key=${process.env.REACT_APP_API_KEY}&language=de-DE`)
             .then(response => response.json())
             .then(video => {
-                console.log(video.results[0].key);
+
                 setVideoLink(video.results[0].key);
             });
     }, [params]);
