@@ -54,9 +54,9 @@ function SearchGenre({ addToFavorites }) {
     return (
         <section className='SearchGenre-Wrapper'>
             <SearchBar />
-            <div>
-                <button className='sortBtn' type='button' onClick={SortAscending}>Ascending</button>
-                <button className='sortBtn' type='button' onClick={SortDescending}>Descending</button>
+            <div className='sortBtnDiv'>
+                <button className='sortBtn' type='button' onClick={SortAscending}>Sort by popularity ↑</button>
+                <button className='sortBtn' type='button' onClick={SortDescending}>Sort by popularity ↓</button>
             </div>
             {movieData.map((singleMovieData, index) => {
                 return (

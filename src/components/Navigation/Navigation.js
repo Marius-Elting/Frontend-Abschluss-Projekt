@@ -15,7 +15,7 @@ function Navigation({ page }) {
                 <img className='navLinkToHome' alt="Home Button" src={page !== "home" ? GrayHome : Home}></img>
             </Link>
             <Link to="/favorites">
-                <img alt="Bookmark Button" src={page === "favo" ? RedBookmark : Bookmark}></img>
+                <img alt="Bookmark Button" className='navBookmark' src={page === "favo" ? RedBookmark : Bookmark}></img>
             </Link>
             <img alt="Download Button" src={Download}></img>
             <img alt="Profile Button" src={Profile}></img>

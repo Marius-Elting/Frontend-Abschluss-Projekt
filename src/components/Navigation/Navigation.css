@@ -1,6 +1,7 @@
 .navigation {
     display: flex;
     justify-content: space-around;
+    align-items: center;
     width: 100%;
     padding: 1rem;
     align-self: flex-end;
@@ -12,4 +13,8 @@
 
 .navLinkToHome {
     margin-top: 7%;
+}
+
+.navBookmark {
+    padding-top: 7px;
 }
