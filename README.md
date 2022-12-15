@@ -6,21 +6,22 @@ This is the Frontend project from Roman, Steffi, Akansel and Marius.
 Following you find our Folder Structure:
 
 ````
-`-- Frontend Abschluss Projekt/
-    `-- src/
-        |-- Pages/
-        |   |-- Detail
-        |   |-- Favorites
-        |   |-- Home
-        |   |-- SearchGenre
-        |   |-- SplashScreen
-        |   `-- StartPage
-        `-- Components/
-            |-- GenreButtons
-            |-- GenreCard
-            |-- Navigation
-            |-- SearchBar
-            `-- TrendingCard
+.
+└── Frontend Abschluss Projekt/
+    └── src/
+        ├── Pages/
+        │   ├── Detail
+        │   ├── Favorites
+        │   ├── Home
+        │   ├── SearchGenre
+        │   ├── SplashScreen
+        │   └── StartPage
+        └── Components/
+            ├── GenreButtons
+            ├── GenreCard
+            ├── Navigation
+            ├── SearchBar
+            └── TrendingCard
 ````            
             
 This is a Simple Movie and Series searching APP.
