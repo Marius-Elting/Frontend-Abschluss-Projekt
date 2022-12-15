@@ -51,7 +51,7 @@ function App() {
       <Router>
         {/* <SplashScreen /> */}
         <Routes>
-          {/* <Route path="/" element={<><SplashScreen /></>} /> */}
+          <Route path="/" element={<><SplashScreen /></>} />
           <Route path="/start" element={<><StartPage /></>} />
           <Route path="/home" element={<><Home /><Navigation page={"home"} /></>} />
           <Route path="/discover/:variant/:searchValue" element={<><SearchGenre addToFavorites={addToFavorites} /><Navigation /></>} />
