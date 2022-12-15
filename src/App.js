@@ -10,11 +10,17 @@ import Favorites from './pages/Favorites/Favorites';
 
 function App() {
   const [favorites, addFavorites] = useState([]);
-
+  let idString = [];
   let userLang = navigator.language || navigator.userLanguage;
+
+  favorites.map((el) => {
+    idString.push(el.id);
+  });
+
   function addToFavorites(selected) {
-
-
+    if (!idString.includes(selected.id)) {
+      addFavorites([...favorites, selected]);
+    }
   }
 
   return (

@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import GenreCard from "../../components/GenreCard/GenreCard";
+import './Favorites.css';
 
 function Favorites({ Favorites }) {
 
     return (
-        <div>
+        <div className="Favorites-Wrapper">
             <h1>Deine Favoriten</h1>
             {Favorites.map((data) => {
 
