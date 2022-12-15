@@ -15,9 +15,8 @@ function App() {
   console.log(userLang);
 
   function addToFavorites(selected) {
-    // addFavorites(favorites.filter(i => i.id != selected.id));
-    console.log(favorites.filter(i => i.id != selected.id));
-    addFavorites([...favorites, selected]);
+
+
   }
 
   return (
