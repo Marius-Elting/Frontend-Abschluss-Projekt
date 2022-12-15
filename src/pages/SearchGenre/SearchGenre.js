@@ -16,10 +16,8 @@ function SearchGenre({ addToFavorites }) {
 
     function SortDescending() {
         const copyMovieData = [...movieData];
-        console.log(copyMovieData);
 
         setMovieData(copyMovieData.sort((a, b) => a.vote_average - b.vote_average));
-        console.log(copyMovieData);
     }
 
 
@@ -53,7 +51,6 @@ function SearchGenre({ addToFavorites }) {
     if (movieData === undefined) {
         return;
     }
-    console.log(movieData);
     return (
         <section className='SearchGenre-Wrapper'>
             <SearchBar />

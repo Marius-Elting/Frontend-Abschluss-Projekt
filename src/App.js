@@ -12,8 +12,6 @@ function App() {
   const [favorites, addFavorites] = useState([]);
 
   let userLang = navigator.language || navigator.userLanguage;
-  console.log(userLang);
-
   function addToFavorites(selected) {
 
 

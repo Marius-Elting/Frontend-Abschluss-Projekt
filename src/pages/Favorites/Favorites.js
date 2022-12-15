@@ -7,7 +7,7 @@ function Favorites({ Favorites }) {
         <div>
             <h1>Deine Favoriten</h1>
             {Favorites.map((data) => {
-                console.log(data);
+
                 return (
                     <GenreCard data={data} />
                 );

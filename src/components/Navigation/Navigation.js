@@ -9,7 +9,6 @@ import RedBookmark from '../../assets/icons/Bookmark-svg-red.svg';
 
 
 function Navigation({ page }) {
-    console.log(page);
     return (
         <div className='navigation'>
             <Link to="/home">
