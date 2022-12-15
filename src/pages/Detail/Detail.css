@@ -6,7 +6,7 @@
 }
 
 .detailPage {
-    padding-bottom: 30%;
+    padding-bottom: 20%;
 }
 
 .backArrow {
@@ -137,7 +137,7 @@
 
 .detailLanguageP {
     font-weight: bolder;
-    margin-right: 2%;
+    margin-right: 3%;
 }
 
 .watchTrailer {
@@ -145,7 +145,7 @@
     border: transparent;
     border-radius: 8px;
     padding: 15px 30px;
-    margin: 0 auto;
+    margin: 10% auto 5% auto;
     color: white;
     font-size: 1.5rem;
     display: flex;
@@ -162,8 +162,8 @@
     /* max-height: calc(var(5)*1em*var(1.5)) */
 }
 
-iframe {
-    padding-top: 80px;
+.detailIframe {
     width: 80%;
-    margin: 0 auto;
+    display: flex;
+    margin: 10% auto;
 }
