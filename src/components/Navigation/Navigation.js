@@ -6,6 +6,7 @@ import Home from '../../assets/icons/Home.svg';
 import GrayHome from '../../assets/icons/GrayHome.svg';
 import { Link } from 'react-router-dom';
 import RedBookmark from '../../assets/icons/Bookmark-svg-red.svg';
+import ProfileRed from '../../assets/icons/Profile-svg-Red.svg';
 
 
 function Navigation({ page }) {
@@ -18,7 +19,9 @@ function Navigation({ page }) {
                 <img alt="Bookmark Button" className='navBookmark' src={page === "favo" ? RedBookmark : Bookmark}></img>
             </Link>
             <img alt="Download Button" src={Download}></img>
-            <img alt="Profile Button" src={Profile}></img>
+            <Link to="/login">
+                <img alt="Profile Button" src={page === "login" ? ProfileRed : Profile}></img>
+            </Link>
         </div>
     );
 }

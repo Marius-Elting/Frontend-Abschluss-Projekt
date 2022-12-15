@@ -1,11 +1,16 @@
 // import firebase from "firebase";
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "@firebase/firestore";
+import { getAuth } from "firebase/auth";
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
+import "firebase/compat/firestore";
+
 // import "firebase/firestore";
 
 
 const firebaseConfig = {
-    apiKey: process.env.FIREBASE_API_KEY,
+    apiKey: "AIzaSyDIs437w9tOoRyJaSDz9xW3ek4mQ6aKWow",
     authDomain: "moviemania-f6691.firebaseapp.com",
     projectId: "moviemania-f6691",
     storageBucket: "moviemania-f6691.appspot.com",
@@ -17,3 +22,5 @@ initializeApp(firebaseConfig);
 
 // export default firebase;
 export const db = getFirestore();
+export const auth = getAuth();
+// export const auth = getAuth(app);
