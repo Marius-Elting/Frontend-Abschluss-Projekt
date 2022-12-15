@@ -7,11 +7,22 @@ import SearchGenre from './pages/SearchGenre/SearchGenre';
 import Detail from './pages/Detail/Detail';
 import StartPage from './pages/StartPage/StartPage';
 import Favorites from './pages/Favorites/Favorites';
+import { db } from './Firebase';
+import { collection, getDocs, addDoc } from "firebase/firestore";
 
 function App() {
   const [favorites, addFavorites] = useState([]);
   let idString = [];
   let userLang = navigator.language || navigator.userLanguage;
+
+  const ref = collection(db, "MovieMania");
+
+  const getFavorites = async () => {
+    const a = await getDocs(ref);
+    console.log(ref);
+    console.log(a);
+  };
+  getFavorites();
 
   favorites.map((el) => {
     idString.push(el.id);
@@ -20,8 +31,12 @@ function App() {
   function addToFavorites(selected) {
     if (!idString.includes(selected.id)) {
       addFavorites([...favorites, selected]);
-    }
+      favorites.map(async (el) => {
+        await addDoc(ref, el);
+      });
+    };
   }
+
 
   return (
     <div className="App">
