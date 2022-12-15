@@ -14,7 +14,6 @@ function Detail() {
     const params = useParams();
     const TrailerRef = useRef();
     const [trailerVideo, setTrailerVideo] = useState();
-    // console.log(params);
 
     useEffect(() => {
         // Moviedetails-fetch
@@ -52,16 +51,6 @@ function Detail() {
     };
 
     if (movieData === undefined) return;
-    // console.log(movieData);
-    // console.log(movieData.runtime);
-
-    // function TrailerVideo() {
-
-    //     return (
-
-    //     );
-    // }
-
     return (
         <div className='detailPage'>
             <div className='detailBackGroundContainer'

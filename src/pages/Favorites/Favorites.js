@@ -1,25 +1,18 @@
 import { useState, useEffect } from "react";
+import GenreCard from "../../components/GenreCard/GenreCard";
 
 function Favorites({ Favorites }) {
-    const [movieData, setMovieData] = useState();
-    console.log(Favorites);
 
-
-
-    var unique = Array.from(new Set(Favorites));
-    console.log(unique);
-
-    return (<div>
-        <h1>Deine Favoriten</h1>
-        {unique.map((data) => {
-            console.log(data);
-            return (
-                <div>
-                    <h1>{data.title}</h1>;
-                </div>
-            );
-        })}
-    </div>
+    return (
+        <div>
+            <h1>Deine Favoriten</h1>
+            {Favorites.map((data) => {
+                console.log(data);
+                return (
+                    <GenreCard data={data} />
+                );
+            })}
+        </div>
     );
 }
 

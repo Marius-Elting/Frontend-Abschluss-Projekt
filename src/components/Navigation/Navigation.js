@@ -15,7 +15,6 @@ function Navigation() {
             <Link to="/favorites">
                 <img alt="Bookmark Button" src={Bookmark}></img>
             </Link>
-
             <img alt="Download Button" src={Download}></img>
             <img alt="Profile Button" src={Profile}></img>
         </div>

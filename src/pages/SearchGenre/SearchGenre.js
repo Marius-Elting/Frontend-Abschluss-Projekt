@@ -17,7 +17,6 @@ function SearchGenre({ addToFavorites }) {
                 .then(response => response.json())
                 .then(data => {
                     setMovieData(data.results);
-                    console.log(data);
                 });
         }
         if (params.variant === "genre") {
@@ -25,7 +24,6 @@ function SearchGenre({ addToFavorites }) {
                 .then(response => response.json())
                 .then(data => {
                     setMovieData(data.results);
-                    console.log(data);
                 });
         }
         if (params.variant === "trending") {
@@ -33,7 +31,6 @@ function SearchGenre({ addToFavorites }) {
                 .then(response => response.json())
                 .then(data => {
                     setMovieData(data.results);
-                    console.log(data);
                 });
         }
     }, [params]);
