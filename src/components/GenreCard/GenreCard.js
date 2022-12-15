@@ -11,16 +11,11 @@ import AddedToFav from '../../assets/icons/AddedToFav.svg';
 
 function GenreCard({ data, index, addToFavorites, page, delteItem, fav }) {
     const date = new Date(data.release_date);
-    const favList = useRef([]);
     let genre = GenreList.genres.find((genre) => genre.id === data.genre_ids[0]);
-    console.log(favList);
-    if (favList.current.includes(data.id)) {
-        fav = true;
-        console.log(fav);
-    }
+
     return (
-        <section className="genreCard">
-            <Link key={index} className="genreCardLink" to={`/details/${data.id}/${data.original_title}`}>
+        <section key={index} className="genreCard">
+            <Link className="genreCardLink" to={`/details/${data.id}/${data.original_title}`}>
                 <img className="genreCard-poster" src={`https://image.tmdb.org/t/p/w300/${data.poster_path}`} onError={(e) => { e.onerror = null; e.target.src = Placeholder; }} alt={data.originale_title}></img>
                 <section className="genreCard-information">
                     <article className="genreCard-movieTitle">

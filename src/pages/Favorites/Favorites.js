@@ -1,14 +1,21 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import GenreCard from "../../components/GenreCard/GenreCard";
 import './Favorites.css';
 import ArrowLeft from '../../assets/icons/arrowLeft.png';
 import { collection, getDocs, addDoc, doc, deleteDoc } from "firebase/firestore";
 import { db } from '../../Firebase';
+import { UserAuth } from "../../context/AuthContext";
+
 
 
 function Favorites({ Favorites }) {
+    const { user } = UserAuth();
+    // console.log(user);
+    // const user = "";
+    const navigate = useNavigate();
     const [favorites, setFavorites] = useState();
+    const [useAbleFavs, setUseAbleFavs] = useState();
     const [number, setNumber] = useState(Favorites.lenght);
 
     const ref = collection(db, "MovieMania");
@@ -16,10 +23,21 @@ function Favorites({ Favorites }) {
         const getFavorites = async () => {
             const a = await getDocs(ref);
             setFavorites(a.docs.map((doc) => ({ ...doc.data(), docid: doc.id })));
+
         };
         getFavorites();
+        console.log(favorites);
+
     }, [Favorites, number]);
 
+
+    useEffect(() => {
+        if (favorites === undefined) return;
+        console.log("hallooo");
+        // console.log(favorites.filter(el => el.userID === user?.uid));
+        // console.log(favorites[0].userID === user?.uid);
+        setUseAbleFavs(favorites.filter(el => el.userID === user?.uid));
+    }, [favorites]);
 
     const deleteUse = async (id) => {
         const FavoDoc = doc(db, "MovieMania", id);
@@ -27,8 +45,8 @@ function Favorites({ Favorites }) {
         setNumber(number - 1);
     };
     // deleteUse()
-    console.log(favorites);
-    if (favorites === undefined) return;
+    console.log(useAbleFavs);
+    if (useAbleFavs === undefined) return;
     return (
         <div className="Favorites-Wrapper">
             <div className="FavoritesBtnAndHeading">
@@ -37,8 +55,8 @@ function Favorites({ Favorites }) {
                 </button>
                 <h1>Deine Favoriten</h1>
             </div>
-            {Favorites.map((data) => {
-
+            {useAbleFavs === [] ? "Leider keine Favoriten vorhanden" : ""}
+            {useAbleFavs.map((data) => {
                 return (
                     <GenreCard data={data} page={"favo"} delteItem={deleteUse} fav={true} />
                 );
