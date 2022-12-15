@@ -164,3 +164,8 @@
     -webkit-box-orient: vertical;
     /* max-height: calc(var(5)*1em*var(1.5)) */
 }
+
+.DetailIframe {
+    display: flex;
+    margin: 20px auto;
+}

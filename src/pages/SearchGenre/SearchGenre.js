@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import GenreCard from '../../components/GenreCard/GenreCard';
 import SearchBar from '../../components/SearchBar/SearchBar';
 
-function SearchGenre() {
+function SearchGenre({ addToFavorites }) {
     const params = useParams();
     const [movieData, setMovieData] = useState();
 
@@ -18,16 +18,14 @@ function SearchGenre() {
                 .then(data => {
                     setMovieData(data.results);
                     console.log(data);
-
                 });
         }
         if (params.variant === "genre") {
-            fetch(`https://api.themoviedb.org/3/list/${params.searchValue}?api_key=12504ab7183e888f66ac1785c47850f3&language=de-DE`)
+            fetch(`https://api.themoviedb.org/3/discover/movie?api_key=12504ab7183e888f66ac1785c47850f3&with_genres=${params.searchValue}`)
                 .then(response => response.json())
                 .then(data => {
-                    setMovieData(data.items);
+                    setMovieData(data.results);
                     console.log(data);
-
                 });
         }
         if (params.variant === "trending") {
@@ -49,7 +47,7 @@ function SearchGenre() {
             <SearchBar />
             {movieData.map((singleMovieData, index) => {
                 return (
-                    <GenreCard data={singleMovieData} index={index} />
+                    <GenreCard addToFavorites={addToFavorites} data={singleMovieData} index={index} />
                 );
             })}
         </section>
