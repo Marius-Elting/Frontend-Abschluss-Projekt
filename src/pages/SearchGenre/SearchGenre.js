@@ -4,9 +4,13 @@ import { useParams } from 'react-router-dom';
 import GenreCard from '../../components/GenreCard/GenreCard';
 import SearchBar from '../../components/SearchBar/SearchBar';
 
+
 function SearchGenre({ addToFavorites }) {
     const params = useParams();
     const [movieData, setMovieData] = useState();
+
+
+
 
     function SortAscending() {
         const copyMovieData = [...movieData];

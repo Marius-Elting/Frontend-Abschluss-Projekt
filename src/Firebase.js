@@ -5,7 +5,7 @@ import { getFirestore } from "@firebase/firestore";
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDIs437w9tOoRyJaSDz9xW3ek4mQ6aKWow",
+    apiKey: process.env.FIREBASE_API_KEY,
     authDomain: "moviemania-f6691.firebaseapp.com",
     projectId: "moviemania-f6691",
     storageBucket: "moviemania-f6691.appspot.com",
