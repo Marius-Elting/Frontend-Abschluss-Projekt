@@ -16,35 +16,37 @@ import LoginPage from './pages/LoginPage/LoginPage';
 
 function App() {
   const { user } = UserAuth();
-  // console.log(UserAuth());
-  console.log(user);
   const [favorites, addFavorites] = useState([]);
-
-  // const user = "";
+  const [dataBaseFavs, setdataBaseFavs] = useState();
+  const [useAbleFavs, setUseAbleFavs] = useState();
   let idString = [];
-  let userLang = navigator.language || navigator.userLanguage;
-
   const ref = collection(db, "MovieMania");
-
-
-
 
   favorites.map((el) => {
     idString.push(el.id);
   });
-  console.log(user);
-  function addToFavorites(selected) {
+  async function addToFavorites(selected) {
     if (!idString.includes(selected.id)) {
       addFavorites([...favorites, selected]);
-      favorites.map(async (el) => {
-        el.userID = user?.uid;
-        await addDoc(ref, el);
-      });
+      selected.userID = user?.uid;
+      await addDoc(ref, selected);
     };
-
   }
 
 
+  useEffect(() => {
+    const getFavorites = async () => {
+      const a = await getDocs(ref);
+      setdataBaseFavs(a.docs.map((doc) => ({ ...doc.data(), docid: doc.id })));
+    };
+    getFavorites();
+
+  }, [favorites,]);
+
+  useEffect(() => {
+    if (dataBaseFavs === undefined) return;
+    setUseAbleFavs(dataBaseFavs.filter(el => el.userID === user?.uid));
+  }, [dataBaseFavs]);
   return (
     <div className="App">
       {/* <AuthContextProvider > */}
@@ -54,8 +56,8 @@ function App() {
           <Route path="/" element={<><SplashScreen /></>} />
           <Route path="/start" element={<><StartPage /></>} />
           <Route path="/home" element={<><Home /><Navigation page={"home"} /></>} />
-          <Route path="/discover/:variant/:searchValue" element={<><SearchGenre addToFavorites={addToFavorites} /><Navigation /></>} />
-          <Route path="/details/:movieID/:movieName" element={<><Detail /><Navigation /></>} />
+          <Route path="/discover/:variant/:searchValue" element={<><SearchGenre addToFavorites={addToFavorites} dataBaseFavs={useAbleFavs} /><Navigation /></>} />
+          <Route path="/details/:movieID/:movieName" element={<><Detail addToFavorites={addToFavorites} /><Navigation /></>} />
           <Route path="/favorites" element={<><Favorites Favorites={favorites} /><Navigation page={"favo"} /></>} />
           <Route path="/login" element={<><LoginPage /><Navigation page="login" /></>} />
         </Routes>

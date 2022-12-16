@@ -9,10 +9,9 @@ import AddToFav from '../../assets/icons/AddToFav.svg';
 import AddedToFav from '../../assets/icons/AddedToFav.svg';
 
 
-function GenreCard({ data, index, addToFavorites, page, delteItem, fav }) {
+function GenreCard({ data, index, addToFavorites, page, delteItem, dataBaseFavs }) {
     const date = new Date(data.release_date);
     let genre = GenreList.genres.find((genre) => genre.id === data.genre_ids[0]);
-
     return (
         <section key={index} className="genreCard">
             <Link className="genreCardLink" to={`/details/${data.id}/${data.original_title}`}>
@@ -32,12 +31,12 @@ function GenreCard({ data, index, addToFavorites, page, delteItem, fav }) {
             </Link>
             <article className='genreCard-interactionButtons'>
                 <img alt="Bookmarksybmol" onClick={(e) => {
-                    if (fav) {
+                    if (data.fav) {
                         delteItem(data.docid);
                     } else {
                         addToFavorites(data); e.target.src = AddedToFav;
                     }
-                }} className="genreCard-bookmark" src={fav ? AddedToFav : AddToFav}></img>
+                }} className="genreCard-bookmark" src={data.fav ? AddedToFav : AddToFav}></img>
             </article>
         </section>
     );
