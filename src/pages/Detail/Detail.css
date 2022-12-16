@@ -3,6 +3,9 @@
     height: 68vh;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    background-Repeat: no-repeat;
+    background-Size: contain;
+    background-Attachment: fixed;
 }
 
 .detailPage {
@@ -171,4 +174,19 @@
     width: 80%;
     display: flex;
     margin: 10% auto;
+}
+
+@media only screen and (min-width: 800px) {
+    * {
+        font-size: 20px;
+    }
+
+    .detailBackGroundContainer {
+        width: 100%;
+        background-size: cover;
+    }
+
+    /* .trendingCard-slide {
+        width: 500px;
+    } */
 }

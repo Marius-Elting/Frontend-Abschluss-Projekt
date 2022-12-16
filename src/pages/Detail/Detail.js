@@ -5,9 +5,10 @@ import ButtonArrow from "../../assets/icons/ButtonArrow.svg";
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect, useRef } from 'react';
 import AddToFav from '../../assets/icons/AddToFavWhite.svg';
+import AddedToFav from '../../assets/icons/AddedToFav.svg';
 
 
-function Detail() {
+function Detail({ addToFavorites, dataBaseFavs }) {
     let navigate = useNavigate();
     const [movieData, setMovieData] = useState();
     const [translationsData, setTranslationsData] = useState();
@@ -49,23 +50,40 @@ function Detail() {
         return num.toString().padStart(1, '0');
     };
     // --------------------------------------------------
+    function setFav() {
+        if (dataBaseFavs === undefined) return;
+        if (movieData === undefined) return;
+        dataBaseFavs.forEach((el) => {
+            console.log(movieData);
+            console.log(el);
+            if (el.id === movieData.id) {
+                movieData.fav = true;
+                console.log("FAVVV");
+            }
+        });
+    }
+    setFav();
 
     if (movieData === undefined) return;
     return (
         <div className='detailPage'>
             <div className='detailBackGroundContainer'
                 style={{
-                    background: `url(https://image.tmdb.org/t/p/original${movieData.poster_path})`,
-                    backgroundRepeat: "no-repeat",
-                    backgroundSize: "contain",
-                    backgroundAttachment: "fixed",
+                    backgroundImage: `url(https://image.tmdb.org/t/p/original${movieData.poster_path})`,
+
                 }} >
                 <div className='backArrow'>
                     <button className='detailBackButton' onClick={() => navigate(-1)}>
                         <img alt='img' src={Return}></img>
                     </button>
                     <p>Movie Details</p>
-                    <img className='addToFavIcon' alt='addToFav' src={AddToFav} />
+                    {/* <img onClick={() => addToFavorites(movieData)} className='addToFavIcon' alt='addToFav' src={AddToFav} /> */}
+                    <img alt="Bookmarksybmol" onClick={(e) => {
+                        if (movieData.fav) {
+                        } else {
+                            addToFavorites(movieData); e.target.src = AddedToFav;
+                        }
+                    }} className="addToFavIcon" src={movieData.fav ? AddedToFav : AddToFav}></img>
                 </div>
                 <div className='detailName' style={{
                     background: "linear-gradient(0deg, #fff, 83%,  transparent)"

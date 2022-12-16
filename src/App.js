@@ -47,6 +47,8 @@ function App() {
     if (dataBaseFavs === undefined) return;
     setUseAbleFavs(dataBaseFavs.filter(el => el.userID === user?.uid));
   }, [dataBaseFavs]);
+
+
   return (
     <div className="App">
       <Router>
@@ -55,7 +57,7 @@ function App() {
           <Route path="/start" element={<><StartPage /></>} />
           <Route path="/home" element={<><Home /><Navigation page={"home"} /></>} />
           <Route path="/discover/:variant/:searchValue" element={<><SearchGenre addToFavorites={addToFavorites} dataBaseFavs={useAbleFavs} /><Navigation /></>} />
-          <Route path="/details/:movieID/:movieName" element={<><Detail addToFavorites={addToFavorites} /><Navigation /></>} />
+          <Route path="/details/:movieID/:movieName" element={<><Detail addToFavorites={addToFavorites} dataBaseFavs={useAbleFavs} /><Navigation /></>} />
           <Route path="/favorites" element={<><Favorites Favorites={favorites} /><Navigation page={"favo"} /></>} />
           <Route path="/login" element={<><LoginPage /><Navigation page="login" /></>} />
         </Routes>

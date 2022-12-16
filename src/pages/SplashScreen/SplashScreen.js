@@ -6,7 +6,7 @@ function SplashScreen() {
     const splashScreen = useNavigate();
 
     useEffect(() => {
-        setTimeout(() => splashScreen("/start", { replace: true }), 4000);
+        setTimeout(() => splashScreen("/start", { replace: true }), 5000);
     }, []);
 
     return (
