@@ -39,6 +39,7 @@ Highlights:
   - Adding favorites
   - Watch the movie trailer
   - See trending movies
+  - Login with Google
 
 
 Watch and try it on: 👇👇👇
