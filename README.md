@@ -8,7 +8,7 @@ Following you find our Folder Structure:
 
 ````
 .
-└── Frontend Abschluss Projekt/
+└── Frontend Project/
     └── src/
         ├── Pages/
         │   ├── Detail
@@ -16,13 +16,18 @@ Following you find our Folder Structure:
         │   ├── Home
         │   ├── SearchGenre
         │   ├── SplashScreen
-        │   └── StartPage
-        └── Components/
-            ├── GenreButtons
-            ├── GenreCard
-            ├── Navigation
-            ├── SearchBar
-            └── TrendingCard
+        │   ├── StartPage
+        │   └── LoginPage
+        ├── Components/
+        │   ├── GenreButtons
+        │   ├── GenreCard
+        │   ├── Navigation
+        │   ├── SearchBar
+        │   └── TrendingCard
+        ├── context
+        ├── fonts
+        └── assets/
+            └── icons
 ````            
             
 This is a Simple Movie and Series searching APP.
