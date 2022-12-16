@@ -7,6 +7,7 @@ function LoginPage() {
     const { googleSignIn } = UserAuth();
     const { user, logOut } = UserAuth();
 
+    // Funktion zum Einloggen
     const handleGoogleSignIn = async () => {
         try {
             await googleSignIn();
@@ -15,6 +16,7 @@ function LoginPage() {
         }
     };
 
+    // Funktion zum Ausloggen
     const handleSignOut = async () => {
         try {
             await logOut();

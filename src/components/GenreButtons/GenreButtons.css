@@ -3,6 +3,7 @@
     flex-direction: row;
     width: 90%;
     overflow-x: scroll;
+    place-self: center;
     margin: 20px;
 }
 
