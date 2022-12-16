@@ -11,7 +11,16 @@ import AddedToFav from '../../assets/icons/AddedToFav.svg';
 
 function GenreCard({ data, index, addToFavorites, page, delteItem, dataBaseFavs }) {
     const date = new Date(data.release_date);
-    let genre = GenreList.genres.find((genre) => genre.id === data.genre_ids[0]);
+    let genre;
+    function getGenres() {
+        if (data.genres === undefined) {
+            genre = GenreList.genres.find((genre) => genre.id === data.genre_ids[0]);
+        } else if (!data.genres === undefined) {
+            genre = GenreList.genres.find((genre) => genre.id === data.genres[0].id);
+        }
+    };
+
+    getGenres();
     return (
         <section key={index} className="genreCard">
             <Link className="genreCardLink" to={`/details/${data.id}/${data.original_title}`}>

@@ -1,7 +1,7 @@
 .GenreButtonsWrapperSection {
     display: flex;
     flex-direction: row;
-    width: 350px;
+    width: 90%;
     overflow-x: scroll;
     margin: 20px;
 }
