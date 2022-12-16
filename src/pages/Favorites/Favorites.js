@@ -1,9 +1,9 @@
-import { useState, useEffect, useMemo } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import GenreCard from "../../components/GenreCard/GenreCard";
 import './Favorites.css';
 import ArrowLeft from '../../assets/icons/arrowLeft.png';
-import { collection, getDocs, addDoc, doc, deleteDoc } from "firebase/firestore";
+import { collection, getDocs, doc, deleteDoc } from "firebase/firestore";
 import { db } from '../../Firebase';
 import { UserAuth } from "../../context/AuthContext";
 
@@ -11,8 +11,7 @@ import { UserAuth } from "../../context/AuthContext";
 
 function Favorites({ Favorites }) {
     const { user } = UserAuth();
-    // console.log(user);
-    // const user = "";
+
     const navigate = useNavigate();
     const [favorites, setFavorites] = useState();
     const [useAbleFavs, setUseAbleFavs] = useState();
@@ -25,7 +24,6 @@ function Favorites({ Favorites }) {
             setFavorites(a.docs.map((doc) => ({ ...doc.data(), docid: doc.id })));
         };
         getFavorites();
-        console.log(favorites);
 
     }, [Favorites, number]);
 
@@ -37,7 +35,6 @@ function Favorites({ Favorites }) {
     const deleteUse = async (id) => {
         const FavoDoc = doc(db, "MovieMania", id);
         await deleteDoc(FavoDoc);
-        console.log("delete item" + id);
         setNumber(id);
     };
 

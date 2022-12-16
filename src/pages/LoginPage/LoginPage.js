@@ -17,8 +17,8 @@ function LoginPage() {
     const handleSignOut = async () => {
         try {
             await logOut();
-        } catch (errro) {
-            console.log(errro);
+        } catch (error) {
+            console.log(error);
         }
     };
 

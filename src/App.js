@@ -10,7 +10,7 @@ import Favorites from './pages/Favorites/Favorites';
 import SplashScreen from './pages/SplashScreen/SplashScreen';
 import { db } from './Firebase';
 import { collection, getDocs, addDoc } from "firebase/firestore";
-import { AuthContextProvider, UserAuth } from './context/AuthContext';
+import { UserAuth } from './context/AuthContext';
 import LoginPage from './pages/LoginPage/LoginPage';
 
 
@@ -22,7 +22,7 @@ function App() {
   let idString = [];
   const ref = collection(db, "MovieMania");
 
-  favorites.map((el) => {
+  favorites.forEach((el) => {
     idString.push(el.id);
   });
   async function addToFavorites(selected) {
@@ -49,9 +49,7 @@ function App() {
   }, [dataBaseFavs]);
   return (
     <div className="App">
-      {/* <AuthContextProvider > */}
       <Router>
-        {/* <SplashScreen /> */}
         <Routes>
           <Route path="/" element={<><SplashScreen /></>} />
           <Route path="/start" element={<><StartPage /></>} />
@@ -62,8 +60,6 @@ function App() {
           <Route path="/login" element={<><LoginPage /><Navigation page="login" /></>} />
         </Routes>
       </Router>
-      {/* </AuthContextProvider> */}
-
     </div>
   );
 }
