@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import GenreCard from '../../components/GenreCard/GenreCard';
 import SearchBar from '../../components/SearchBar/SearchBar';
-
+import GenreButton from '../../components/GenreButtons/GenreButtons';
 
 function SearchGenre({ addToFavorites, dataBaseFavs }) {
     const params = useParams();
@@ -52,10 +52,12 @@ function SearchGenre({ addToFavorites, dataBaseFavs }) {
     return (
         <section className='SearchGenre-Wrapper'>
             <SearchBar />
+            <GenreButton />
             <div className='sortBtnDiv'>
                 <button className='sortBtn' type='button' onClick={SortAscending}>Sort by popularity ↑</button>
                 <button className='sortBtn' type='button' onClick={SortDescending}>Sort by popularity ↓</button>
             </div>
+
             {movieData.map((singleMovieData, index) => {
                 if (dataBaseFavs === undefined) return;
                 dataBaseFavs.forEach((el) => {
