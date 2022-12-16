@@ -9,18 +9,13 @@ function SearchGenre({ addToFavorites, dataBaseFavs }) {
     const params = useParams();
     const [movieData, setMovieData] = useState();
 
-
-
-
     function SortAscending() {
         const copyMovieData = [...movieData];
-
         setMovieData(copyMovieData.sort((a, b) => b.vote_average - a.vote_average));
     }
 
     function SortDescending() {
         const copyMovieData = [...movieData];
-
         setMovieData(copyMovieData.sort((a, b) => a.vote_average - b.vote_average));
     }
 
@@ -52,9 +47,8 @@ function SearchGenre({ addToFavorites, dataBaseFavs }) {
         }
     }, [params]);
 
-    if (movieData === undefined) {
-        return;
-    }
+    if (movieData === undefined) return;
+
     return (
         <section className='SearchGenre-Wrapper'>
             <SearchBar />
