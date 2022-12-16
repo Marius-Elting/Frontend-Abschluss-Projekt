@@ -4,6 +4,7 @@ import RatingStar from "../../assets/icons/RatingStar.svg";
 import ButtonArrow from "../../assets/icons/ButtonArrow.svg";
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect, useRef } from 'react';
+import AddToFav from '../../assets/icons/AddToFavWhite.svg';
 
 
 function Detail() {
@@ -64,6 +65,7 @@ function Detail() {
                         <img alt='img' src={Return}></img>
                     </button>
                     <p>Movie Details</p>
+                    <img className='addToFavIcon' alt='addToFav' src={AddToFav} />
                 </div>
                 <div className='detailName' style={{
                     background: "linear-gradient(0deg, #fff, 83%,  transparent)"

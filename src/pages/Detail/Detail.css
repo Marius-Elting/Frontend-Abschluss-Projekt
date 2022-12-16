@@ -10,14 +10,15 @@
 }
 
 .backArrow {
-    width: 90%;
+    width: 100%;
     display: flex;
-    color: white;
-    font-weight: bolder;
     align-items: center;
+    justify-content: space-around;
     padding: 20px 0 0 0;
     font-size: 1.5rem;
     margin: 0 auto;
+    color: white;
+    font-weight: bolder;
 }
 
 .detailBackButton {
@@ -33,7 +34,10 @@
 .backArrow button {
     background-color: transparent;
     border-style: none;
-    margin-right: 15%;
+}
+
+.addToFavIcon {
+    height: 35px;
 }
 
 .detailName {
