@@ -1,3 +1,4 @@
+import './LoginPage.css';
 import GoogleButton from "react-google-button";
 import { UserAuth } from "../../context/AuthContext";
 
@@ -23,9 +24,9 @@ function LoginPage() {
     };
 
     return (
-        <div>
-            <h1>Willkommen, {user?.displayName}</h1>
-            {user?.displayName ? <button onClick={handleSignOut}>Ausloggen</button> : <GoogleButton onClick={handleGoogleSignIn} />}
+        <div className="loginDiv">
+            <h1 className="loginHeading" >Willkommen, {user?.displayName}</h1>
+            {user?.displayName ? <button className='loginBtn' onClick={handleSignOut}>Ausloggen</button> : <GoogleButton className='loginGoogleBtn' onClick={handleGoogleSignIn} />}
         </div>
     );
 }
