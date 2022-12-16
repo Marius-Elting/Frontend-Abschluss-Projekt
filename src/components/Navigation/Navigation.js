@@ -20,7 +20,7 @@ function Navigation({ page }) {
             </Link>
             <img alt="Download Button" src={Download}></img>
             <Link to="/login">
-                <img alt="Profile Button" src={page === "login" ? ProfileRed : Profile}></img>
+                <img alt="Profile Button" className='navLogin' src={page === "login" ? ProfileRed : Profile}></img>
             </Link>
         </div>
     );
