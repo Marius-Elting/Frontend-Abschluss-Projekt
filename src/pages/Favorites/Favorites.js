@@ -23,29 +23,25 @@ function Favorites({ Favorites }) {
         const getFavorites = async () => {
             const a = await getDocs(ref);
             setFavorites(a.docs.map((doc) => ({ ...doc.data(), docid: doc.id })));
-
         };
         getFavorites();
         console.log(favorites);
 
     }, [Favorites, number]);
 
-
     useEffect(() => {
         if (favorites === undefined) return;
-        console.log("hallooo");
-        // console.log(favorites.filter(el => el.userID === user?.uid));
-        // console.log(favorites[0].userID === user?.uid);
         setUseAbleFavs(favorites.filter(el => el.userID === user?.uid));
     }, [favorites]);
 
     const deleteUse = async (id) => {
         const FavoDoc = doc(db, "MovieMania", id);
         await deleteDoc(FavoDoc);
-        setNumber(number - 1);
+        console.log("delete item" + id);
+        setNumber(id);
     };
-    // deleteUse()
-    console.log(useAbleFavs);
+
+
     if (useAbleFavs === undefined) return;
     return (
         <div className="Favorites-Wrapper">
@@ -56,9 +52,10 @@ function Favorites({ Favorites }) {
                 <h1>Deine Favoriten</h1>
             </div>
             {useAbleFavs === [] ? "Leider keine Favoriten vorhanden" : ""}
-            {useAbleFavs.map((data) => {
+            {useAbleFavs.map((data, index) => {
+                data.fav = true;
                 return (
-                    <GenreCard data={data} page={"favo"} delteItem={deleteUse} fav={true} />
+                    <GenreCard data={data} index={index} page={"favo"} delteItem={deleteUse} fav={true} />
                 );
             })}
         </div>

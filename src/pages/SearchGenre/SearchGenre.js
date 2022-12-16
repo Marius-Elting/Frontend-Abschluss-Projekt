@@ -5,7 +5,7 @@ import GenreCard from '../../components/GenreCard/GenreCard';
 import SearchBar from '../../components/SearchBar/SearchBar';
 
 
-function SearchGenre({ addToFavorites }) {
+function SearchGenre({ addToFavorites, dataBaseFavs }) {
     const params = useParams();
     const [movieData, setMovieData] = useState();
 
@@ -63,8 +63,15 @@ function SearchGenre({ addToFavorites }) {
                 <button className='sortBtn' type='button' onClick={SortDescending}>Sort by popularity ↓</button>
             </div>
             {movieData.map((singleMovieData, index) => {
+                if (dataBaseFavs === undefined) return;
+                dataBaseFavs.forEach((el) => {
+                    if (el.id === singleMovieData.id) {
+                        singleMovieData.fav = true;
+                    }
+                });
+
                 return (
-                    <GenreCard addToFavorites={addToFavorites} data={singleMovieData} index={index} />
+                    <GenreCard addToFavorites={addToFavorites} data={singleMovieData} index={index} dataBaseFavs={dataBaseFavs} />
                 );
             })}
         </section>
