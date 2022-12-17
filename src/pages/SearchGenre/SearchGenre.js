@@ -54,8 +54,8 @@ function SearchGenre({ addToFavorites, dataBaseFavs }) {
             <SearchBar />
             <GenreButton />
             <div className='sortBtnDiv'>
-                <button className='sortBtn' type='button' onClick={SortAscending}>Sort by popularity ↑</button>
-                <button className='sortBtn' type='button' onClick={SortDescending}>Sort by popularity ↓</button>
+                <button className='sortBtn' type='button' onClick={SortAscending}>Sort by popularity ↓</button>
+                <button className='sortBtn' type='button' onClick={SortDescending}>Sort by popularity ↑</button>
             </div>
 
             {movieData.map((singleMovieData, index) => {
