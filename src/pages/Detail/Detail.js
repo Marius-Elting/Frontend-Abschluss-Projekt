@@ -54,11 +54,8 @@ function Detail({ addToFavorites, dataBaseFavs }) {
         if (dataBaseFavs === undefined) return;
         if (movieData === undefined) return;
         dataBaseFavs.forEach((el) => {
-            console.log(movieData);
-            console.log(el);
             if (el.id === movieData.id) {
                 movieData.fav = true;
-                console.log("FAVVV");
             }
         });
     }

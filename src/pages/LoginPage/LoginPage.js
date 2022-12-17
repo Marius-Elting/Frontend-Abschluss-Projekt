@@ -1,6 +1,7 @@
 import './LoginPage.css';
 import GoogleButton from "react-google-button";
 import { UserAuth } from "../../context/AuthContext";
+import { Link } from 'react-router-dom';
 
 
 function LoginPage() {
@@ -29,6 +30,7 @@ function LoginPage() {
         <div className="loginDiv">
             <h1 className="loginHeading" >Willkommen, {user?.displayName}</h1>
             {user?.displayName ? <button className='loginBtn' onClick={handleSignOut}>Ausloggen</button> : <GoogleButton className='loginGoogleBtn' onClick={handleGoogleSignIn} />}
+            <p>mit dem Login akzeptierst du unsere <Link to="/datenschutz">Datenschutzerklärung</Link></p>
         </div>
     );
 }

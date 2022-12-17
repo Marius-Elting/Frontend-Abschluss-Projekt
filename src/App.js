@@ -12,6 +12,7 @@ import { db } from './Firebase';
 import { collection, getDocs, addDoc } from "firebase/firestore";
 import { UserAuth } from './context/AuthContext';
 import LoginPage from './pages/LoginPage/LoginPage';
+import Datenschutz from './pages/Datenschutz/Datenschutz';
 
 
 function App() {
@@ -60,6 +61,7 @@ function App() {
           <Route path="/details/:movieID/:movieName" element={<><Detail addToFavorites={addToFavorites} dataBaseFavs={useAbleFavs} /><Navigation /></>} />
           <Route path="/favorites" element={<><Favorites Favorites={favorites} /><Navigation page={"favo"} /></>} />
           <Route path="/login" element={<><LoginPage /><Navigation page="login" /></>} />
+          <Route path="/datenschutz" element={<><Datenschutz /><Navigation page="login" /></>} />
         </Routes>
       </Router>
     </div>
