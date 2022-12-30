@@ -8,6 +8,7 @@ function SearchBar() {
     const inputRef = useRef();
     const navigate = useNavigate();
 
+    // durch diese Funktion leitet auf die seite discover/search/{suchbegriff} weiter
     const handleOnClick = useCallback(() => navigate(`/discover/search/${inputRef.current.value}`, { replace: true }), [navigate]);
 
     return (

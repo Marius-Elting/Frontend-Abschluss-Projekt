@@ -11,6 +11,7 @@ function LoginPage() {
     // Funktion zum Einloggen
     const handleGoogleSignIn = async () => {
         try {
+            // durch diese Funktion wird sich eingeloggt 
             await googleSignIn();
         } catch (error) {
             console.log(error);
@@ -20,6 +21,7 @@ function LoginPage() {
     // Funktion zum Ausloggen
     const handleSignOut = async () => {
         try {
+            // durch diese Funktion wird sich ausgeloggt
             await logOut();
         } catch (error) {
             console.log(error);
