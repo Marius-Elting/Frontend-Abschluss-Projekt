@@ -23,18 +23,25 @@ function App() {
   let idString = [];
   const ref = collection(db, "MovieMania");
 
+
   favorites.forEach((el) => {
     idString.push(el.id);
   });
+
+  // in dieser Funktion werden Favoriten hinzugefügt und in der Datenbank gespeichert welcher user den Film als favoriten gespeichert hat
   async function addToFavorites(selected) {
+    // hier wird geprüft ob der Film bereits als Favorit hinzugefügt wurde
     if (!idString.includes(selected.id)) {
+      // hier wird dem array favorites das selectete item hinzugefügt wird
       addFavorites([...favorites, selected]);
+      // hier wird dem object die entsprechende userID hinzugefügt, damit im nachhinein nachvolzogen werden kann welcher user diesen Film als Favorit gespeichert hat
       selected.userID = user?.uid;
+      // hier wird der neue Favorit in der Datenbank gespeichert
       await addDoc(ref, selected);
     };
   }
 
-
+  // Hier werden die Favoriten aus der Datenbank geladen
   useEffect(() => {
     const getFavorites = async () => {
       const a = await getDocs(ref);
@@ -42,8 +49,9 @@ function App() {
     };
     getFavorites();
 
-  }, [favorites,]);
+  }, [favorites]);
 
+  // hier werden die UseAbleFavs gesetzt (es werden nur favoriten ausgegeben die der jeweilige User gespeichert hat)
   useEffect(() => {
     if (dataBaseFavs === undefined) return;
     setUseAbleFavs(dataBaseFavs.filter(el => el.userID === user?.uid));

@@ -1,18 +1,18 @@
 import './GenreCard.css';
 import GenreList from './GenreList.json';
 import { Link } from 'react-router-dom';
-import { useState, useRef } from 'react';
 import Star from '../img/RatingStar.svg';
 import Placeholder from '../img/Placeholder.png';
-import BookmarkSymbol from '../img/BookmarkIcon.png';
 import AddToFav from '../../assets/icons/AddToFav.svg';
 import AddedToFav from '../../assets/icons/AddedToFav.svg';
 
 
-function GenreCard({ data, index, addToFavorites, page, delteItem, dataBaseFavs }) {
+function GenreCard({ data, index, addToFavorites, delteItem }) {
     const date = new Date(data.release_date);
     let genre;
+    // hier wird für die GenreIDs entsprechend der Name des Genres eingesetzt 
     function getGenres() {
+        // da bei unterschiedlichen suchmethoden die genres an unterschiedlichen stellen stehen wird hier geprüft über welchen Endpoint auf die Genres zugegriffen werden kann
         if (data.genres === undefined) {
             genre = GenreList.genres.find((genre) => genre.id === data.genre_ids[0]);
         } else if (!data.genres === undefined) {

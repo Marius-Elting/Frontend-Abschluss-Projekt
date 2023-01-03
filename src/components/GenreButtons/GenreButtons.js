@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 function GenreButtons() {
     return (
+        // Hier werden die Buttons erstellt, die auf die Suche weiterleiten und die entsprechende Suchmethode und der Suchbegriff werden mitgegeben
         <section className='GenreButtonsWrapperSection'>
             <Link to={`/discover/genre/28`}><button>Action</button></Link>
             <Link to={`/discover/genre/35`}><button>Komödie</button></Link>

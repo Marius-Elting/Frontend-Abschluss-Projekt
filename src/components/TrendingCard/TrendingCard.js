@@ -5,11 +5,13 @@ import { Link } from 'react-router-dom';
 
 
 function TrendingCard() {
+    // hier wird der Delay für das Bilder Carousel festgelegt
     const delay = 3500;
     const [trendingData, setTrendingData] = useState();
     const [index, setIndex] = useState(0);
     const timeoutRef = useRef(null);
 
+    // hier wird nach trending movies fetched und diese in einer state Variable gespeichert
     useEffect(() => {
         fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.REACT_APP_API_KEY}&language=de-DE`)
             .then(response => response.json())
@@ -18,30 +20,32 @@ function TrendingCard() {
             });
     }, []);
 
-    function resetTimeout() {
-        if (timeoutRef.current) {
-            clearTimeout(timeoutRef.current);
+    // Nachfolgender Code sorgt dafür das das Bilder Carousel sich bewegt
+    {
+        function resetTimeout() {
+            if (timeoutRef.current) {
+                clearTimeout(timeoutRef.current);
+            }
         }
-    }
 
-    useEffect(() => {
-        if (trendingData === undefined) {
-            return;
-        }
-        resetTimeout();
-        timeoutRef.current = setTimeout(
-            () =>
-                setIndex((prevIndex) =>
-                    prevIndex === trendingData.length - 1 ? 0 : prevIndex + 1
-                ),
-            delay
-        );
-
-        return () => {
+        useEffect(() => {
+            if (trendingData === undefined) {
+                return;
+            }
             resetTimeout();
-        };
-    }, [index, trendingData]);
+            timeoutRef.current = setTimeout(
+                () =>
+                    setIndex((prevIndex) =>
+                        prevIndex === trendingData.length - 1 ? 0 : prevIndex + 1
+                    ),
+                delay
+            );
 
+            return () => {
+                resetTimeout();
+            };
+        }, [index, trendingData]);
+    }
     if (trendingData === undefined) {
         return;
     }
