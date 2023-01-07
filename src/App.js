@@ -51,6 +51,8 @@ function App() {
 
   }, [favorites]);
 
+
+
   // hier werden die UseAbleFavs gesetzt (es werden nur favoriten ausgegeben die der jeweilige User gespeichert hat)
   useEffect(() => {
     if (dataBaseFavs === undefined) return;

@@ -13,6 +13,10 @@
     src: url('./fonts/Papyrus.ttf');
 }
 
+.addToFavIcon:hover {
+    cursor: pointer;
+}
+
 * {
     font-family: Poppins-Reg;
     margin: 0;
