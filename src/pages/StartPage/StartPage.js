@@ -8,7 +8,7 @@ function StartPage() {
                 <section className='start-page-top'>
                 </section>
             </div>
-            <section className='start-page-buttom'>
+            <section className='start-page-bottom'>
                 <h1>Enjoy Your Movie <br />
                     Watch Everywhere</h1>
                 <p>Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.</p>

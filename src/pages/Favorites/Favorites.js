@@ -50,6 +50,7 @@ function Favorites({ Favorites }) {
                     <img alt='img' src={ArrowLeft}></img>
                 </button>
                 <h1>Deine Favoriten</h1>
+                <div></div>
             </div>
             {useAbleFavs === [] ? "Leider keine Favoriten vorhanden" : ""}
             {useAbleFavs.map((data, index) => {

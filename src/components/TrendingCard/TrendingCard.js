@@ -51,7 +51,7 @@ function TrendingCard() {
     }
     return (
         <section className='trendingCard-wrapper'>
-            <h2 className='trendingCard-headline'>Trending Movies <Link to="/discover/trending/movie">See all</Link></h2>
+            <h2 className='trendingCard-headline'>Momentan beliebt<Link to="/discover/trending/movie">mehr</Link></h2>
             <div className="trendingCard-slideshow">
                 <div
                     className="trendingCard-slideshowSlider"

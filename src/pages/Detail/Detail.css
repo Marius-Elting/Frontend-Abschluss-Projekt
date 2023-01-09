@@ -28,10 +28,13 @@
     height: 44px;
     width: 44px;
     border-radius: 15px;
+    filter: drop-shadow(1px 1px 3px white)
 }
 
 .detailBackButton:hover {
-    box-shadow: 1px 1px 10px gray;
+    filter: drop-shadow(3px 3px 10px white);
+    cursor: pointer
+        /* box-shadow: 1px 1px 10px gray; */
 }
 
 .backArrow button {

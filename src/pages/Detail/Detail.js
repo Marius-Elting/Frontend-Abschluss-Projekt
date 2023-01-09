@@ -73,7 +73,7 @@ function Detail({ addToFavorites, dataBaseFavs }) {
                     <button className='detailBackButton' onClick={() => navigate(-1)}>
                         <img alt='img' src={Return}></img>
                     </button>
-                    <p>Movie Details</p>
+                    <p>Film Details</p>
                     {/* <img onClick={() => addToFavorites(movieData)} className='addToFavIcon' alt='addToFav' src={AddToFav} /> */}
                     <img alt="Bookmarksybmol" onClick={(e) => {
                         if (movieData.fav) {
@@ -99,7 +99,7 @@ function Detail({ addToFavorites, dataBaseFavs }) {
                 </div>
             </div>
             <div className='detailOverviewDiv'>
-                <h3>Overview</h3>
+                <h3>Übersicht</h3>
                 <div ><p className='detailCuttofP'>{movieData.overview}</p><input type="checkbox" className='seeMore'></input></div>
                 <div className='detailGenreDiv'>
                     <p className='detailGenre'>Genre</p>
@@ -111,7 +111,7 @@ function Detail({ addToFavorites, dataBaseFavs }) {
                         })}
                     </div>
                 </div>
-                <div className='detailLanguage'> <p><span className='detailLanguageP'>Languages</span>{movieData.spoken_languages[0].english_name}</p></div>
+                <div className='detailLanguage'> <p><span className='detailLanguageP'>Sprachen</span>{movieData.spoken_languages[0].english_name}</p></div>
             </div>
             <button onClick={() => {
                 setTrailerVideo(<iframe className="detailIframe" title="Trailer" src={`https://www.youtube.com/embed/${videoLink}`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" fullscreen="true" allowfullscreen="allowfullscreen" onLoad={(e) => { e.target.requestFullscreen(); }} onKeyDown={() => setTrailerVideo("")}></iframe>);
@@ -123,7 +123,7 @@ function Detail({ addToFavorites, dataBaseFavs }) {
 
             }} className='watchTrailer'>
                 <img alt='img' src={ButtonArrow} />
-                Watch Trailer
+                Trailer ansehen
             </button>
             {trailerVideo}
         </div>

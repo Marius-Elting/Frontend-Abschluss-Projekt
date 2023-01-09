@@ -13,7 +13,7 @@ function SearchBar() {
 
     return (
         <div className="Searchbar-Container">
-            <input ref={inputRef} type="text" className="input" placeholder="Search Movie..." onKeyDown={(e) => e.key === "Enter" ? handleOnClick() : ""}></input>
+            <input ref={inputRef} type="text" className="input" placeholder="Suche" onKeyDown={(e) => e.key === "Enter" ? handleOnClick() : ""}></input>
             <button onClick={() => handleOnClick()} type="submit"><img src={SearchImg} alt="SuchLupe" className="fa Searchbar-Img"></img></button>
 
         </div>

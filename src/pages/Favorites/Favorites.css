@@ -8,7 +8,7 @@
 }
 
 .FavoritesBtnAndHeading {
-    width: 75%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -28,8 +28,17 @@
     border-radius: 12px;
     display: flex;
     justify-content: center;
+    background-color: #FBF8FF;
+    border: none;
+    cursor: pointer;
+    box-shadow: 1px 1px 6px gray;
     align-items: center;
     cursor: pointer;
+}
+
+.favoritesBackButton:hover {
+    box-shadow: 3px 3px 10px gray;
+
 }
 
 .favoritesBackButton img {
