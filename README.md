@@ -41,7 +41,6 @@ Highlights:
   - See trending movies
   - Login with Google
 
- ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=mariuselting&hide=javascript,css,scss,html&theme=tokyonight)
 
 
 Watch and try it on: 👇👇👇
