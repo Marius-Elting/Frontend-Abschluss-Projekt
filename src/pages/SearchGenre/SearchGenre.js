@@ -59,7 +59,7 @@ function SearchGenre({ addToFavorites, dataBaseFavs }) {
     return (
         <section className='SearchGenre-Wrapper'>
             <SearchBar />
-            <GenreButton />
+            <GenreButton params={params} />
             <div className='sortBtnDiv'>
                 <button className='sortBtn' type='button' onClick={SortAscending}>Popularität ↓</button>
                 <button className='sortBtn' type='button' onClick={SortDescending}>Popularität ↑</button>

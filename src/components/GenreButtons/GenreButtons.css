@@ -22,6 +22,10 @@
     cursor: pointer;
 }
 
+.GenreButtonsWrapperSection button.active {
+    background-color: #ff7d7d;
+}
+
 
 ::-webkit-scrollbar {
     width: 10px;
