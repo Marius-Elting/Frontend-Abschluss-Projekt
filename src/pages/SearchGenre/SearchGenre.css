@@ -22,6 +22,10 @@
     white-space: nowrap;
 }
 
+.sortBtn.active {
+    background-color: #fd8f8f;
+}
+
 .sortBtn:hover {
     background-color: #fd8f8f;
     cursor: pointer;

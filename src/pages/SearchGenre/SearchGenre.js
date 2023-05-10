@@ -10,15 +10,18 @@ function SearchGenre({ addToFavorites, dataBaseFavs }) {
     const params = useParams();
     // In diseer useState variable werden die gefetchten Daten aus der API gespeichert
     const [movieData, setMovieData] = useState();
-
+    const [direction, setDirection] = useState();
     // Hier wird aufsteigend Sortiert
     function SortAscending() {
         const copyMovieData = [...movieData];
+        setDirection("Ascending")
         setMovieData(copyMovieData.sort((a, b) => b.vote_average - a.vote_average));
     }
     // Hier wird absteigend Sortiert
     function SortDescending() {
         const copyMovieData = [...movieData];
+        setDirection("Descending")
+
         setMovieData(copyMovieData.sort((a, b) => a.vote_average - b.vote_average));
     }
 
@@ -61,8 +64,8 @@ function SearchGenre({ addToFavorites, dataBaseFavs }) {
             <SearchBar />
             <GenreButton params={params} />
             <div className='sortBtnDiv'>
-                <button className='sortBtn' type='button' onClick={SortAscending}>Popularität ↓</button>
-                <button className='sortBtn' type='button' onClick={SortDescending}>Popularität ↑</button>
+                <button className={`sortBtn ${direction === "Ascending" && "active"}`} type='button' onClick={SortAscending}>Popularität ↓</button>
+                <button className={`sortBtn ${direction === "Descending" && "active"}`} type='button' onClick={SortDescending}>Popularität ↑</button>
             </div>
 
             {movieData.map((singleMovieData, index) => {
