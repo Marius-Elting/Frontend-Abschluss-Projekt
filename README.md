@@ -45,4 +45,4 @@ Highlights:
 
 Watch and try it on: 👇👇👇
 
-https://super-movie-mania.netlify.app/
+https://moviemania.mariuselting.dev/
