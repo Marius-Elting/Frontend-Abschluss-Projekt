@@ -9,7 +9,7 @@ import StartPage from './pages/StartPage/StartPage';
 import Favorites from './pages/Favorites/Favorites';
 import SplashScreen from './pages/SplashScreen/SplashScreen';
 import { db } from './Firebase';
-import { collection, getDocs, addDoc } from "firebase/firestore";
+import { collection, getDocs, addDoc, deleteDoc, doc } from "firebase/firestore";
 import { UserAuth } from './context/AuthContext';
 import LoginPage from './pages/LoginPage/LoginPage';
 import Datenschutz from './pages/Datenschutz/Datenschutz';
@@ -18,8 +18,10 @@ import Datenschutz from './pages/Datenschutz/Datenschutz';
 function App() {
   const { user } = UserAuth();
   const [favorites, addFavorites] = useState([]);
+
   const [dataBaseFavs, setdataBaseFavs] = useState();
   const [useAbleFavs, setUseAbleFavs] = useState();
+  const [refreshFavs, setRefreshFavs] = useState(false)
   let idString = [];
   const ref = collection(db, "MovieMania");
 
@@ -45,21 +47,25 @@ function App() {
   useEffect(() => {
     const getFavorites = async () => {
       const a = await getDocs(ref);
-      setdataBaseFavs(a.docs.map((doc) => ({ ...doc.data(), docid: doc.id })));
+
+      const favs = a.docs.map((doc) => ({ ...doc.data(), docid: doc.id }))
+      console.log(a.docs.map((doc) => ({ ...doc.data(), docid: doc.id })).filter(el => el.userID === user?.uid))
+      setdataBaseFavs(favs);
+      // if (favs === undefined) return;
+      setUseAbleFavs(favs.filter(el => el.userID === user?.uid));
     };
     getFavorites();
 
-  }, [favorites]);
-
-
+  }, [favorites, user, refreshFavs]);
 
   // hier werden die UseAbleFavs gesetzt (es werden nur favoriten ausgegeben die der jeweilige User gespeichert hat)
-  useEffect(() => {
-    if (dataBaseFavs === undefined) return;
-    setUseAbleFavs(dataBaseFavs.filter(el => el.userID === user?.uid));
-  }, [dataBaseFavs]);
 
-
+  // diese Funktion löscht einen ausgewählten Favoriten aus der Datenbank
+  const deleteFavorite = async (id) => {
+    const FavoDoc = doc(db, "MovieMania", id);
+    await deleteDoc(FavoDoc);
+    setRefreshFavs(prev => !prev)
+  };
   return (
     <div className="App">
       <Router>
@@ -67,9 +73,9 @@ function App() {
           <Route path="/" element={<><SplashScreen /></>} />
           <Route path="/start" element={<><StartPage /></>} />
           <Route path="/home" element={<><Home /><Navigation page={"home"} /></>} />
-          <Route path="/discover/:variant/:searchValue" element={<><SearchGenre addToFavorites={addToFavorites} dataBaseFavs={useAbleFavs} /><Navigation /></>} />
-          <Route path="/details/:movieID/:movieName" element={<><Detail addToFavorites={addToFavorites} dataBaseFavs={useAbleFavs} /><Navigation /></>} />
-          <Route path="/favorites" element={<><Favorites Favorites={favorites} /><Navigation page={"favo"} /></>} />
+          <Route path="/discover/:variant/:searchValue" element={<><SearchGenre addToFavorites={addToFavorites} deleteFavorite={deleteFavorite} dataBaseFavs={useAbleFavs} /><Navigation /></>} />
+          <Route path="/details/:movieID/:movieName" element={<><Detail addToFavorites={addToFavorites} deleteFavorite={deleteFavorite} dataBaseFavs={useAbleFavs} /><Navigation /></>} />
+          <Route path="/favorites" element={<><Favorites deleteFavorite={deleteFavorite} favorites={useAbleFavs} Favorites={favorites} /><Navigation page={"favo"} /></>} />
           <Route path="/login" element={<><LoginPage /><Navigation page="login" /></>} />
           <Route path="/datenschutz" element={<><Datenschutz /><Navigation page="login" /></>} />
         </Routes>
