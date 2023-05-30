@@ -79,7 +79,7 @@ function SearchGenre({ addToFavorites, dataBaseFavs, deleteFavorite }) {
             </div>
 
             {movieData.map((singleMovieData, index) => {
-                if (dataBaseFavs === undefined) return;
+                if (dataBaseFavs === undefined) return <></>;
                 // Hier wird mit der Datenbank abgeglichen welcher Film als Favorit gespeichert ist, den jeweiligen Elementen wird fav = true hinzugefügt
                 dataBaseFavs.forEach((el) => {
                     if (el.id === singleMovieData.id) {

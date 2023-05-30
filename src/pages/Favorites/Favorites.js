@@ -1,20 +1,10 @@
-import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import GenreCard from "../../components/GenreCard/GenreCard";
 import './Favorites.css';
 import ArrowLeft from '../../assets/icons/arrowLeft.png';
-import { collection, getDocs, doc, deleteDoc } from "firebase/firestore";
-import { db } from '../../Firebase';
-
-
 
 function Favorites({ Favorites, favorites, deleteFavorite }) {
     const navigate = useNavigate();
-    const [number, setNumber] = useState(Favorites.lenght);
-    // hier wird der ref festgelegt, mit diesem Ref kann auf die Datenbank zugegriffen werden
-
-    console.log(favorites)
-
     if (favorites === undefined) return;
     return (
         <div className="Favorites-Wrapper">
