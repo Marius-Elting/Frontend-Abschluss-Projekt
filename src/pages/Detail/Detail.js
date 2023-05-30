@@ -8,7 +8,7 @@ import AddToFav from '../../assets/icons/AddToFavWhite.svg';
 import AddedToFav from '../../assets/icons/AddedToFav.svg';
 
 
-function Detail({ addToFavorites, dataBaseFavs }) {
+function Detail({ addToFavorites, dataBaseFavs, deleteFavorite }) {
     let navigate = useNavigate();
     const [movieData, setMovieData] = useState();
     const [translationsData, setTranslationsData] = useState();
@@ -19,10 +19,23 @@ function Detail({ addToFavorites, dataBaseFavs }) {
 
     useEffect(() => {
         // Moviedetails-fetch
+
+        const addDocId = (data) => {
+            dataBaseFavs.forEach((el) => {
+                if (el.id === data.id) {
+                    data.fav = true;
+                    data.docid = el.docid
+                }
+            });
+
+            setMovieData(data)
+        }
         fetch(`https://api.themoviedb.org/3/movie/${params.movieID}?api_key=${process.env.REACT_APP_API_KEY}&language=de-DE`)
             .then(res => res.json())
             .then(movieData => {
-                setMovieData(movieData);
+                // console.log(movieData)
+                addDocId(movieData)
+                // setMovieData(movieData);
             });
 
         // Translations-fetch
@@ -60,7 +73,7 @@ function Detail({ addToFavorites, dataBaseFavs }) {
         });
     }
     setFav();
-
+    console.log(movieData)
     if (movieData === undefined) return;
     return (
         <div className='detailPage'>
@@ -77,6 +90,7 @@ function Detail({ addToFavorites, dataBaseFavs }) {
                     {/* <img onClick={() => addToFavorites(movieData)} className='addToFavIcon' alt='addToFav' src={AddToFav} /> */}
                     <img alt="Bookmarksybmol" onClick={(e) => {
                         if (movieData.fav) {
+                            deleteFavorite(movieData.docid)
                         } else {
                             addToFavorites(movieData); e.target.src = AddedToFav;
                         }

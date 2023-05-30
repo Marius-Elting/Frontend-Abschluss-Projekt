@@ -62,6 +62,8 @@ function App() {
 
   // diese Funktion löscht einen ausgewählten Favoriten aus der Datenbank
   const deleteFavorite = async (id) => {
+    console.log("DELETE")
+    console.log(id)
     const FavoDoc = doc(db, "MovieMania", id);
     await deleteDoc(FavoDoc);
     setRefreshFavs(prev => !prev)
