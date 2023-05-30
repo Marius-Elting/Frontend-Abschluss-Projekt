@@ -19,7 +19,7 @@ function GenreCard({ data, index, addToFavorites, delteItem }) {
             genre = GenreList.genres.find((genre) => genre.id === data.genres[0].id);
         }
     };
-
+    console.log(data)
     getGenres();
     return (
         <section key={index} className="genreCard">

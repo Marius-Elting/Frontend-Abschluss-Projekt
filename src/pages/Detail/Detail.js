@@ -8,21 +8,33 @@ import AddToFav from '../../assets/icons/AddToFavWhite.svg';
 import AddedToFav from '../../assets/icons/AddedToFav.svg';
 
 
-function Detail({ addToFavorites, dataBaseFavs }) {
+function Detail({ addToFavorites, dataBaseFavs, deleteFavorite }) {
     let navigate = useNavigate();
     const [movieData, setMovieData] = useState();
     const [translationsData, setTranslationsData] = useState();
     const [videoLink, setVideoLink] = useState();
     const params = useParams();
-    const TrailerRef = useRef();
     const [trailerVideo, setTrailerVideo] = useState();
-
+    console.log(translationsData)
     useEffect(() => {
         // Moviedetails-fetch
+
+        const addDocId = (data) => {
+            dataBaseFavs.forEach((el) => {
+                if (el.id === data.id) {
+                    data.fav = true;
+                    data.docid = el.docid
+                }
+            });
+
+            setMovieData(data)
+        }
         fetch(`https://api.themoviedb.org/3/movie/${params.movieID}?api_key=${process.env.REACT_APP_API_KEY}&language=de-DE`)
             .then(res => res.json())
             .then(movieData => {
-                setMovieData(movieData);
+                // console.log(movieData)
+                addDocId(movieData)
+                // setMovieData(movieData);
             });
 
         // Translations-fetch
@@ -60,7 +72,7 @@ function Detail({ addToFavorites, dataBaseFavs }) {
         });
     }
     setFav();
-
+    console.log(movieData)
     if (movieData === undefined) return;
     return (
         <div className='detailPage'>
@@ -77,6 +89,7 @@ function Detail({ addToFavorites, dataBaseFavs }) {
                     {/* <img onClick={() => addToFavorites(movieData)} className='addToFavIcon' alt='addToFav' src={AddToFav} /> */}
                     <img alt="Bookmarksybmol" onClick={(e) => {
                         if (movieData.fav) {
+                            deleteFavorite(movieData.docid)
                         } else {
                             addToFavorites(movieData); e.target.src = AddedToFav;
                         }
@@ -111,7 +124,12 @@ function Detail({ addToFavorites, dataBaseFavs }) {
                         })}
                     </div>
                 </div>
-                <div className='detailLanguage'> <p><span className='detailLanguageP'>Sprachen</span>{movieData.spoken_languages[0].english_name}</p></div>
+                <div className='detailLanguage'>
+                    <p>
+                        <span className='detailLanguageP'>Sprachen</span>{translationsData && translationsData.translations?.sort((a, b) => a.name - b.name).map((data, i) => <span key={i}>{data.english_name} - {data.iso_3166_1}{i === translationsData.translations.length - 1 ? "" : ", "} </span>)}
+                        {/* {movieData.spoken_languages[0].english_name} */}
+                    </p>
+                </div>
             </div>
             <button onClick={() => {
                 setTrailerVideo(<iframe className="detailIframe" title="Trailer" src={`https://www.youtube.com/embed/${videoLink}`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" fullscreen="true" allowfullscreen="allowfullscreen" onLoad={(e) => { e.target.requestFullscreen(); }} onKeyDown={() => setTrailerVideo("")}></iframe>);
